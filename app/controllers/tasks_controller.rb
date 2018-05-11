@@ -12,6 +12,12 @@ class TasksController < ApplicationController
   def show
   end
 
+  def complete
+    @task = Task.find(params[:id])
+    @task.update(completed_at: Time.zone.now.to_datetime)
+    redirect_to task_path(@task)
+  end
+
   # GET /tasks/new
   def new
     @task = Task.new

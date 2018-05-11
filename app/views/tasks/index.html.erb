@@ -23,8 +23,10 @@
             <td><%= task.description %></td>
             <td><%= task.time %></td>
             <td><%= link_to 'Show', task %></td>
+            <td><%= '|' %></td>
             <td><%= link_to 'Edit', edit_task_path(task) %></td>
-            <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= '|' %></td>
+            <td><%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>
@@ -36,4 +38,5 @@
   <div class="newT">
     <%= link_to 'New Task', new_task_path %>
   </div>
+</div>
 </div>

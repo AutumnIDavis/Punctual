@@ -1,6 +1,13 @@
-<h1>Editing Task</h1>
-
-<%= render 'form', task: @task %>
-
-<%= link_to 'Show', @task %> |
-<%= link_to 'Back', tasks_path %>
+<div class="container">
+  <div class="task_list_title">
+    <h1>Editing Task</h1>
+  </div>
+  <div class="editPage">
+    <%= render 'form', task: @task %>
+<br>
+    <div class="edbk">
+      <%= link_to 'Edit', edit_task_path(@task) %> |
+      <%= link_to 'Back', tasks_path %>
+    </div>
+  </div>
+</div>
