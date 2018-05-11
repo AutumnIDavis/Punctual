@@ -6,6 +6,8 @@ class TaskItemsController < ApplicationController
     redirect_to @task
   end
 
+
+
   private
 
    def set_task_list

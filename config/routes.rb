@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  
+
   resources :tasks do
-    resources :task_items
+      member do
+        patch :complete
+      end
   end
 
   devise_for :users
 
-    root 'tasks#index'
+  root 'tasks#index'
 end

@@ -1,27 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @task.title %>
-</p>
+  <div class="desc">
+    <p>
+      <strong>Title:</strong>
+      <%= @task.title %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @task.description %>
-</p>
+    <p>
+      <strong>Description:</strong>
+      <%= @task.description %>
+    </p>
 
-<p>
-  <strong>Time:</strong>
-  <%= @task.time %>
-</p>
+    <p>
+      <strong>Time:</strong>
+      <%= @task.time %>
+    </p>
+  </div>
 
-<div id="todo_items_wrapper">
-	<%= render @task.task_items %>
-	<div id="form">
-		<%= render "tasks/form" %>
-	</div>
+  <div id="task_items_wrapper">
+  	<%= render @task.task_items %>
+  	<div id="form">
+  		<%= render "tasks/form" %>
+  	</div>
+  </div>
+
+<br>
+
+  <div class="edbk">
+    <%= link_to 'Edit', edit_task_path(@task) %> |
+    <%= link_to 'Back', tasks_path %>
+    <!-- <%= link_to 'Mark as Complete', complete_task_path(@task), method: :patch %> -->
+  </div>
+
+
 </div>
-
-
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
