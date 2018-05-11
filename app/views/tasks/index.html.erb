@@ -21,7 +21,7 @@
           <tr>
             <td><%= task.title %></td>
             <td><%= task.description %></td>
-            <td><%= task.time %></td>
+            <td><%= task.time %> min.</td>
             <td><%= link_to 'Show', task %></td>
             <td><%= '|' %></td>
             <td><%= link_to 'Edit', edit_task_path(task) %></td>
@@ -31,12 +31,77 @@
         <% end %>
       </tbody>
     </table>
+    <br><br>
+    <div class="newT">
+      <%= link_to 'New Task', new_task_path %>
+    </div>
+    <div class="totalTime">
+      <br><br><br><br>
+      <p>Total Time Needed: <%= Task.sum(:time) %> minutes</p>
+    </div>
   </div>
 
   <br>
 
-  <div class="newT">
-    <%= link_to 'New Task', new_task_path %>
+  <div id="time"></div>
+
+  <div class="countDown">
+    <div>You have <span id="timer"></span> minutes left</div>
   </div>
+
 </div>
 </div>
+
+<script>
+
+// gets current time
+function checkTime(i) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  return i;
+  }
+
+  function startTime() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  // add a zero in front of numbers<10
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+  t = setTimeout(function() {
+    startTime()
+  }, 500);
+  }
+  startTime();
+
+// countdown timer
+var cD = <%= Task.sum(:time) %>
+
+  document.getElementById('timer').innerHTML =
+  cD + ":" + 00;
+startTimer();
+
+function startTimer() {
+  var presentTime = document.getElementById('timer').innerHTML;
+  var timeArray = presentTime.split(/[:]+/);
+  var m = timeArray[0];
+  var s = checkSecond((timeArray[1] - 1));
+  if(s==59){m=m-1}
+  // if(m<0){alert('timer completed')}
+
+  document.getElementById('timer').innerHTML =
+    m + ":" + s;
+  setTimeout(startTimer, 1000);
+}
+
+function checkSecond(sec) {
+  if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
+  if (sec < 0) {sec = "59"};
+  return sec;
+}
+
+
+</script>
