@@ -43,25 +43,53 @@
 
   <br>
 
-  <div class="col-md-6">
+
+  <div id="travel">
     <form id="distance_form">
-      <div class="form-group"><label>Origin: </label> <input class="form-control" id="from_places" placeholder="Enter a location" /> <input id="origin" name="origin" required="" type="hidden" /></div>
+      <div class="form-group">
 
-      <div class="form-group"><label>Destination: </label> <input class="form-control" id="to_places" placeholder="Enter a location" /> <input id="destination" name="destination" required="" type="hidden" /></div>
+        <label style= "display:block">Origin: </label>
+<br>
+        <input class="form-control" id="from_places" style= "display:block; outline: none;background:rgba(250, 250, 250, 0.4);border: none;height: 40px;border-radius: 4px;padding: 1em 2em;display: block;text-align: center;position: relative;left: 75px; left: 40px; width: 262px;" placeholder="Enter a location" />
+
+        <input id="origin" name="origin" required="" type="hidden" />
+      </div>
+
+<br>
+      <div class="form-group">
+
+        <label style= "display:block;">Destination: </label>
+<br>
+        <input class="form-control" id="to_places" style= "display:block; outline: none;background:rgba(250, 250, 250, 0.4);border: none;height: 40px;border-radius: 4px;padding: 1em 2em;display: block;text-align: center;position: relative;left: 75px; left: 40px; width: 262px;" placeholder="Enter a location" />
+
+        <input id="destination" name="destination" required="" type="hidden" />
+      </div>
+
+      <br><br>
+
       <input class="btn btn-primary" type="submit" value="Calculate" /></form>
-
+<br><br>
       <div id="result">
           <ul class="list-group">
-          	<li class="list-group-item d-flex justify-content-between align-items-center">Distance In Mile :</li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">Distance In Mile :</li>
             <span id="in_mile" class="badge badge-primary badge-pill"></span>
-          	<li class="list-group-item d-flex justify-content-between align-items-center">IN TEXT:</li>
+            <br><br>
+
+            <li class="list-group-item d-flex justify-content-between align-items-center">IN TEXT:</li>
             <span id="duration_text" class="badge badge-primary badge-pill"></span>
-          	<li class="list-group-item d-flex justify-content-between align-items-center">IN MINUTES:</li>
+            <br><br>
+
+            <li class="list-group-item d-flex justify-content-between align-items-center">IN MINUTES:</li>
             <span id="duration_value" class="badge badge-primary badge-pill"></span>
-          	<li class="list-group-item d-flex justify-content-between align-items-center">FROM:</li>
+            <br><br>
+
+            <li class="list-group-item d-flex justify-content-between align-items-center">FROM:</li>
              <span id="from" class="badge badge-primary badge-pill"></span>
-          	<li class="list-group-item d-flex justify-content-between align-items-center">TO:</li>
+             <br><br>
+
+            <li class="list-group-item d-flex justify-content-between align-items-center">TO:</li>
             <span id="to" class="badge badge-primary badge-pill"></span>
+            <br>
           </ul>
       </div>
   </div>
@@ -102,6 +130,7 @@
 
 // countdown timer
       var cD = <%= Task.sum(:time) %>
+      // var t = duration_value;
 
         document.getElementById('timer').innerHTML =
         cD + ":" + 00;

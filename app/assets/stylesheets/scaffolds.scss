@@ -5,7 +5,7 @@ $white_opaque: rgba(250, 250, 250, .3);
 	box-sizing: border-box;
 }
 html {
-  height: 100%;
+  // height: 200%;
 }
 
 body {
@@ -140,6 +140,8 @@ body {
 			width: 25%;
 			display: inline-block;
 			transition: all .4s ease-in-out;
+      position: relative;
+      left: 1%;
 			cursor: pointer;
 			&:hover {
 				background: $dark;
@@ -210,7 +212,7 @@ input[type="submit"] {
 	cursor: pointer;
 	color: $dark;
   position: relative;
-  left: 40%;
+  left: 0%;
 	&:hover {
 		background: $dark;
 		color: white;
@@ -252,6 +254,7 @@ input[type="submit"] {
   color: white;
   font-size: 50px;
   left: 38%;
+  top: -730px;
 }
 
 #status{
@@ -264,5 +267,19 @@ input[type="submit"] {
   position: relative;
   left: 43%;
   margin: 19px -38px;
+  top: -740px;
+}
 
+#travel{
+  width: 50%;
+  padding: 36px 29px;
+  margin: 30px 199px;
+  position: relative;
+  left: -80%;
+  top: -659px;
+  text-align: center;
+}
+
+#travel ul{
+  list-style-type: none;
 }
