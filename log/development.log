@@ -11041,3 +11041,140 @@ Processing by TasksController#index as HTML
 Completed 200 OK in 161ms (Views: 155.1ms | ActiveRecord: 0.7ms)
 
 
+Started GET "/tasks" for 127.0.0.1 at 2018-05-11 19:44:30 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/foreverautumn/.rvm/rubies/ruby-2.4.1/lib/ruby/gems/2.4.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/foreverautumn/.rvm/rubies/ruby-2.4.1/lib/ruby/gems/2.4.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:20
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT SUM("tasks"."time") FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:40
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT SUM("tasks"."time") FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:92
+  Rendered tasks/index.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 297ms (Views: 260.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2018-05-11 19:45:01 -0400
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/foreverautumn/.rvm/rubies/ruby-2.4.1/lib/ruby/gems/2.4.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:20
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT SUM("tasks"."time") FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:40
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT SUM("tasks"."time") FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:100
+  Rendered tasks/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 34ms (Views: 29.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2018-05-11 19:46:00 -0400
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/foreverautumn/.rvm/rubies/ruby-2.4.1/lib/ruby/gems/2.4.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:20
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT SUM("tasks"."time") FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:40
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT SUM("tasks"."time") FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:100
+  Rendered tasks/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 45ms (Views: 41.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2018-05-11 19:48:27 -0400
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/foreverautumn/.rvm/rubies/ruby-2.4.1/lib/ruby/gems/2.4.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:20
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT SUM("tasks"."time") FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:40
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT SUM("tasks"."time") FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:100
+  Rendered tasks/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 36ms (Views: 31.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2018-05-11 19:50:28 -0400
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/foreverautumn/.rvm/rubies/ruby-2.4.1/lib/ruby/gems/2.4.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:20
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT SUM("tasks"."time") FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:40
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT SUM("tasks"."time") FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:99
+  Rendered tasks/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 35ms (Views: 30.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2018-05-11 20:01:57 -0400
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/foreverautumn/.rvm/rubies/ruby-2.4.1/lib/ruby/gems/2.4.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:20
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT SUM("tasks"."time") FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:40
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT SUM("tasks"."time") FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:99
+  Rendered tasks/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 39ms (Views: 30.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2018-05-11 20:06:52 -0400
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/foreverautumn/.rvm/rubies/ruby-2.4.1/lib/ruby/gems/2.4.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:20
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT SUM("tasks"."time") FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:40
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT SUM("tasks"."time") FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:100
+  Rendered tasks/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 37ms (Views: 32.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2018-05-11 20:08:23 -0400
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/foreverautumn/.rvm/rubies/ruby-2.4.1/lib/ruby/gems/2.4.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:20
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT SUM("tasks"."time") FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:40
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT SUM("tasks"."time") FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:104
+  Rendered tasks/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 41ms (Views: 36.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/tasks" for 127.0.0.1 at 2018-05-11 20:08:37 -0400
+Processing by TasksController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ /Users/foreverautumn/.rvm/rubies/ruby-2.4.1/lib/ruby/gems/2.4.0/gems/sprockets-rails-3.2.1/lib/sprockets/rails/quiet_assets.rb:13
+  Rendering tasks/index.html.erb within layouts/application
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:20
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT SUM("tasks"."time") FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:40
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT SUM("tasks"."time") FROM "tasks"[0m
+  ↳ app/views/tasks/index.html.erb:104
+  Rendered tasks/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 35ms (Views: 30.3ms | ActiveRecord: 0.5ms)
+
+
