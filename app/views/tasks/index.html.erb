@@ -125,6 +125,14 @@
 </div>
 </div>
 
+
+
+
+
+
+
+
+<!-- <input onclick='responsiveVoice.speak("Good morning Autumn");' type='button' value='🔊 Play' /> -->
 <script>
 
 // gets current time
@@ -361,7 +369,8 @@ botui.message.bot({
 if (annyang) {
   // Let's define a command.
   var commands = {
-    'good morning timothy': function() { alert('Good Morning, Autumn!'); }
+    'good morning timothy': function() { var msg = new SpeechSynthesisUtterance('Good morning, Autumn');
+    window.speechSynthesis.speak(msg); }
   };
 
   // Add our commands to annyang
@@ -374,7 +383,8 @@ if (annyang) {
 if (annyang) {
   // Let's define a command.
   var commands = {
-    'what time is it': function() { alert('happy oclock'); }
+    'what time is it': function() { var msg = new SpeechSynthesisUtterance('Its blank oclock');
+    window.speechSynthesis.speak(msg); }
   };
 
   // Add our commands to annyang
@@ -387,7 +397,8 @@ if (annyang) {
 if (annyang) {
   // Let's define a command.
   var commands = {
-    'how much time is left': function() { alert('Not much'); }
+    'how much time is left': function() { var msg = new SpeechSynthesisUtterance('All the time in the world');
+    window.speechSynthesis.speak(msg); }
   };
 
   // Add our commands to annyang
