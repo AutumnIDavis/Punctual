@@ -233,6 +233,7 @@ input[type="submit"] {
   position: relative;
   text-align: center;
   padding: 0% 10%;
+  top: -404px;
 }
 
 .newT{
@@ -254,7 +255,7 @@ input[type="submit"] {
   color: white;
   font-size: 50px;
   left: 38%;
-  top: -730px;
+  top: -1125px;
 }
 
 #status{
@@ -267,7 +268,7 @@ input[type="submit"] {
   position: relative;
   left: 43%;
   margin: 19px -38px;
-  top: -740px;
+  top: -1107px;
 }
 
 #travel{
@@ -276,10 +277,65 @@ input[type="submit"] {
   margin: 30px 199px;
   position: relative;
   left: -80%;
-  top: -659px;
+  top: -951px;
   text-align: center;
 }
 
 #travel ul{
   list-style-type: none;
+}
+
+button {
+  display: block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 200px;
+  height: 200px;
+  border: 0;
+  border-radius: 50%;
+  padding: .7em 1em;
+  margin: 4em auto 3em;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(180deg, #39C2C9 0%, #3FC8C9 80%, #3FC8C9 100%);
+  box-shadow: 2px 5px 30px rgba(63, 200, 201, .4);
+
+  will-change: transform, filter;
+  transition: all 0.3s ease-out;
+}
+button .fa {
+  font-size: 130px;
+  line-height: 200px;
+  margin: 0;
+  text-shadow: 1px 2px 2px #2a8b90;
+}
+button:hover {
+  transform: scale(.92);
+}
+button:active {
+  filter: brightness(.8);
+}
+button:focus {
+  outline: 0;
+}
+
+iframe{
+  position: relative;
+  left: 108%;
+  display: inline-block;
+}
+
+#roboAI{
+  position: absolute;
+  top: 265px;
+  left: 76%;
+  width: 345px;
+  display: inline;
+  overflow: scroll;
+  height: 426px;
+}
+
+#roboAI button{
+    height: 27px;
+    margin: 3%;
 }

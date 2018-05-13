@@ -4,6 +4,27 @@
   <div class="task_list_title">
     <h1>Tasks</h1>
   </div>
+  <iframe
+      width="350"
+      height="430"
+      src="">
+  </iframe>
+
+
+<div id="roboAI">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <main class="bot-wrapper centered">
+    <div id="bot">
+      <bot-ui></bot-ui>
+    </div>
+    </main>
+    <script src='https://cdn.jsdelivr.net/vue/latest/vue.min.js'></script>
+    <script src='https://unpkg.com/botui/build/botui.min.js'></script>
+</div>
+
+
+
+
 
   <div class="taskDisplay">
     <table>
@@ -224,4 +245,112 @@ $(function() {
     });
 
 });
+
+
+
+
+//Good morning robot below
+
+var botui = new BotUI("bot"); // give it the id of container
+
+botui.message.bot({
+	// show first message
+	delay: 500,
+	content: "Good morning " + name + "! ![hello image](https://media1.tenor.com/images/a9b3e91e8db7b177b0e3fa7c67a2ecfa/tenor.gif?itemid=4710146)",
+	loading: true // fake typing
+}).then(function () {
+	return botui.message.bot({
+		// second one
+		delay: 500,
+		loading: true,
+		content: "How are you feeling?"
+	});
+}).then(function () {
+	return botui.action.button({
+		// let user choose something
+		delay: 300,
+		action: [{
+			text: "Okay",
+			value: "Okay"
+		}, {
+			text: "Good",
+			value: "Good"
+		}, {
+			text: "Awesome",
+			value: "Awesome"
+		}, {
+			text: "Amazing!",
+			value: "awfully_good"
+		}]
+	});
+}).then(function (res) {
+	return botui.message.bot({
+		delay: 400,
+		loading: true, // pretend like we are doing something
+		content: "Glad you're feeling " + res.text.toLowerCase() + "!"
+	});
+}).then(function () {
+	botui.message.bot({
+		delay: 700,
+		loading: true,
+		content: "How did you sleep?"
+	}).then(function () {
+		return botui.action.text({
+			delay: 400,
+			action: {
+				size: 18,
+				icon: "user-circle-o",
+				sub_type: "text",
+				placeholder: "Well? Hard?"
+			}
+		});
+	}).then(function (res) {
+		name = res.value; // save new value
+		return botui.message.bot({
+			delay: 300,
+			loading: true,
+			content: "Let's start this morning off positive!"
+		});
+	}).then(function (res) {
+		name = res.value; // save new value
+		return botui.message.bot({
+			delay: 300,
+			loading: true,
+			content: "What's something you're thankful for?"
+		});
+	}).then(function () {
+  	return botui.action.button({
+  		// let user choose something
+  		delay: 300,
+  		action: [{
+  			text: "Waking up today",
+  			value: "be alive"
+  		}, {
+  			text: "Feeling loved",
+  			value: "feel loved"
+  		}, {
+  			text: "Having a home",
+  			value: "have a home"
+  		}, {
+  			text: "Having a family!",
+  			value: "have a family"
+  		}]
+  	});
+  }).then(function (res) {
+  	return botui.message.bot({
+  		delay: 400,
+  		loading: true, // pretend like we are doing something
+  		content: "Isn't " + res.text.toLowerCase() + " great! "
+  	});
+  }).then(function (res) {
+		name = res.value; // save new value
+		return botui.message.bot({
+			delay: 300,
+			loading: true,
+			content: "Better get a move on now. Don't want to be late!"  + "! ![hello image](https://media1.tenor.com/images/a9b3e91e8db7b177b0e3fa7c67a2ecfa/tenor.gif?itemid=4710146)"
+		});
+  });
+});
+
+
 </script>
