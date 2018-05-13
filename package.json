@@ -1,5 +1,29 @@
 {
-  "name": "Punctual",
+  "name": "punctual",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "apiai": "^4.0.3",
+    "express": "^4.16.3",
+    "socket.io": "^2.1.0"
+  },
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "begin"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AutumnIDavis/Punctual.git"
+  },
+  "author": "Autumn Davis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AutumnIDavis/Punctual/issues"
+  },
+  "homepage": "https://github.com/AutumnIDavis/Punctual#readme"
 }

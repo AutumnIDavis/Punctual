@@ -4,6 +4,27 @@
   <div class="task_list_title">
     <h1>Tasks</h1>
   </div>
+  <iframe
+      width="350"
+      height="430"
+      src="">
+  </iframe>
+
+
+<div id="roboAI">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <main class="bot-wrapper centered">
+    <div id="bot">
+      <bot-ui></bot-ui>
+    </div>
+    </main>
+    <script src='https://cdn.jsdelivr.net/vue/latest/vue.min.js'></script>
+    <script src='https://unpkg.com/botui/build/botui.min.js'></script>
+</div>
+
+
+
+
 
   <div class="taskDisplay">
     <table>
@@ -43,25 +64,53 @@
 
   <br>
 
-  <div class="col-md-6">
+
+  <div id="travel">
     <form id="distance_form">
-      <div class="form-group"><label>Origin: </label> <input class="form-control" id="from_places" placeholder="Enter a location" /> <input id="origin" name="origin" required="" type="hidden" /></div>
+      <div class="form-group">
 
-      <div class="form-group"><label>Destination: </label> <input class="form-control" id="to_places" placeholder="Enter a location" /> <input id="destination" name="destination" required="" type="hidden" /></div>
+        <label style= "display:block">Origin: </label>
+<br>
+        <input class="form-control" id="from_places" style= "display:block; outline: none;background:rgba(250, 250, 250, 0.4);border: none;height: 40px;border-radius: 4px;padding: 1em 2em;display: block;text-align: center;position: relative;left: 75px; left: 40px; width: 262px;" placeholder="Enter a location" />
+
+        <input id="origin" name="origin" required="" type="hidden" />
+      </div>
+
+<br>
+      <div class="form-group">
+
+        <label style= "display:block;">Destination: </label>
+<br>
+        <input class="form-control" id="to_places" style= "display:block; outline: none;background:rgba(250, 250, 250, 0.4);border: none;height: 40px;border-radius: 4px;padding: 1em 2em;display: block;text-align: center;position: relative;left: 75px; left: 40px; width: 262px;" placeholder="Enter a location" />
+
+        <input id="destination" name="destination" required="" type="hidden" />
+      </div>
+
+      <br><br>
+
       <input class="btn btn-primary" type="submit" value="Calculate" /></form>
-
+<br><br>
       <div id="result">
           <ul class="list-group">
-          	<li class="list-group-item d-flex justify-content-between align-items-center">Distance In Mile :</li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">Distance In Mile :</li>
             <span id="in_mile" class="badge badge-primary badge-pill"></span>
-          	<li class="list-group-item d-flex justify-content-between align-items-center">IN TEXT:</li>
+            <br><br>
+
+            <li class="list-group-item d-flex justify-content-between align-items-center">IN TEXT:</li>
             <span id="duration_text" class="badge badge-primary badge-pill"></span>
-          	<li class="list-group-item d-flex justify-content-between align-items-center">IN MINUTES:</li>
+            <br><br>
+
+            <li class="list-group-item d-flex justify-content-between align-items-center">IN MINUTES:</li>
             <span id="duration_value" class="badge badge-primary badge-pill"></span>
-          	<li class="list-group-item d-flex justify-content-between align-items-center">FROM:</li>
+            <br><br>
+
+            <li class="list-group-item d-flex justify-content-between align-items-center">FROM:</li>
              <span id="from" class="badge badge-primary badge-pill"></span>
-          	<li class="list-group-item d-flex justify-content-between align-items-center">TO:</li>
+             <br><br>
+
+            <li class="list-group-item d-flex justify-content-between align-items-center">TO:</li>
             <span id="to" class="badge badge-primary badge-pill"></span>
+            <br>
           </ul>
       </div>
   </div>
@@ -102,6 +151,7 @@
 
 // countdown timer
       var cD = <%= Task.sum(:time) %>
+      // var t = duration_value;
 
         document.getElementById('timer').innerHTML =
         cD + ":" + 00;
@@ -195,4 +245,112 @@ $(function() {
     });
 
 });
+
+
+
+
+//Good morning robot below
+
+var botui = new BotUI("bot"); // give it the id of container
+
+botui.message.bot({
+	// show first message
+	delay: 500,
+	content: "Good morning " + name + "! ![hello image](https://media1.tenor.com/images/a9b3e91e8db7b177b0e3fa7c67a2ecfa/tenor.gif?itemid=4710146)",
+	loading: true // fake typing
+}).then(function () {
+	return botui.message.bot({
+		// second one
+		delay: 500,
+		loading: true,
+		content: "How are you feeling?"
+	});
+}).then(function () {
+	return botui.action.button({
+		// let user choose something
+		delay: 300,
+		action: [{
+			text: "Okay",
+			value: "Okay"
+		}, {
+			text: "Good",
+			value: "Good"
+		}, {
+			text: "Awesome",
+			value: "Awesome"
+		}, {
+			text: "Amazing!",
+			value: "awfully_good"
+		}]
+	});
+}).then(function (res) {
+	return botui.message.bot({
+		delay: 400,
+		loading: true, // pretend like we are doing something
+		content: "Glad you're feeling " + res.text.toLowerCase() + "!"
+	});
+}).then(function () {
+	botui.message.bot({
+		delay: 700,
+		loading: true,
+		content: "How did you sleep?"
+	}).then(function () {
+		return botui.action.text({
+			delay: 400,
+			action: {
+				size: 18,
+				icon: "user-circle-o",
+				sub_type: "text",
+				placeholder: "Well? Hard?"
+			}
+		});
+	}).then(function (res) {
+		name = res.value; // save new value
+		return botui.message.bot({
+			delay: 300,
+			loading: true,
+			content: "Let's start this morning off positive!"
+		});
+	}).then(function (res) {
+		name = res.value; // save new value
+		return botui.message.bot({
+			delay: 300,
+			loading: true,
+			content: "What's something you're thankful for?"
+		});
+	}).then(function () {
+  	return botui.action.button({
+  		// let user choose something
+  		delay: 300,
+  		action: [{
+  			text: "Waking up today",
+  			value: "be alive"
+  		}, {
+  			text: "Feeling loved",
+  			value: "feel loved"
+  		}, {
+  			text: "Having a home",
+  			value: "have a home"
+  		}, {
+  			text: "Having a family!",
+  			value: "have a family"
+  		}]
+  	});
+  }).then(function (res) {
+  	return botui.message.bot({
+  		delay: 400,
+  		loading: true, // pretend like we are doing something
+  		content: "Isn't " + res.text.toLowerCase() + " great! "
+  	});
+  }).then(function (res) {
+		name = res.value; // save new value
+		return botui.message.bot({
+			delay: 300,
+			loading: true,
+			content: "Better get a move on now. Don't want to be late!"  + "! ![hello image](https://media1.tenor.com/images/a9b3e91e8db7b177b0e3fa7c67a2ecfa/tenor.gif?itemid=4710146)"
+		});
+  });
+});
+
+
 </script>
