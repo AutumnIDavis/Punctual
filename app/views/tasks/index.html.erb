@@ -407,4 +407,88 @@ if (annyang) {
   // Start listening.
   annyang.start();
 }
+
+if (annyang) {
+  // Let's define a command.
+  var commands = {
+    'thank you': function() { var msg = new SpeechSynthesisUtterance('Your very welcome');
+    window.speechSynthesis.speak(msg); }
+  };
+
+  // Add our commands to annyang
+  annyang.addCommands(commands);
+
+  // Start listening.
+  annyang.start();
+}
+
+if (annyang) {
+  // Let's define a command.
+  var commands = {
+    'say hello to the class timothy': function() { var msg = new SpeechSynthesisUtterance('hello everyone');
+    window.speechSynthesis.speak(msg); }
+  };
+
+  // Add our commands to annyang
+  annyang.addCommands(commands);
+
+  // Start listening.
+  annyang.start();
+}
+
+if (annyang) {
+  // Let's define a command.
+  var commands = {
+    'timothy please explain the app': function() { var msg = new SpeechSynthesisUtterance('this app is designed to make your mornings easier, by putting everything you need to stay on time, right at your fingertips');
+    window.speechSynthesis.speak(msg); }
+  };
+
+  // Add our commands to annyang
+  annyang.addCommands(commands);
+
+  // Start listening.
+  annyang.start();
+}
+
+if (annyang) {
+  // Let's define a command.
+  var commands = {
+    'like what': function() { var msg = new SpeechSynthesisUtterance('the weather, for example, is right here, so you know exactly how to dress for the day');
+    window.speechSynthesis.speak(msg); }
+  };
+
+  // Add our commands to annyang
+  annyang.addCommands(commands);
+
+  // Start listening.
+  annyang.start();
+}
+
+if (annyang) {
+  // Let's define a command.
+  var commands = {
+    'okay what else': function() { var msg = new SpeechSynthesisUtterance('I also take into account traveling time and distance, to make sure you have plenty of time to get to where you need to go on time.');
+    window.speechSynthesis.speak(msg); }
+  };
+
+  // Add our commands to annyang
+  annyang.addCommands(commands);
+
+  // Start listening.
+  annyang.start();
+}
+
+if (annyang) {
+  // Let's define a command.
+  var commands = {
+    'timothy': function() { var msg = new SpeechSynthesisUtterance('yes?');
+    window.speechSynthesis.speak(msg); }
+  };
+
+  // Add our commands to annyang
+  annyang.addCommands(commands);
+
+  // Start listening.
+  annyang.start();
+}
 </script>
