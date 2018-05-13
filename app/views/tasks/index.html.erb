@@ -43,11 +43,12 @@
             <td><%= task.title %></td>
             <td><%= task.description %></td>
             <td><%= task.time %> min.</td>
-            <td><%= link_to 'Show', task %></td>
+            <!-- <td><%= link_to 'Show', task %></td>
             <td><%= '|' %></td>
-            <td><%= link_to 'Edit', edit_task_path(task) %></td>
+            <td><%= link_to 'Edit', edit_task_path(task) %></td> -->
             <td><%= '|' %></td>
             <td><%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= '|' %></td>
           </tr>
         <% end %>
       </tbody>
@@ -353,4 +354,46 @@ botui.message.bot({
 });
 
 
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+<script>
+if (annyang) {
+  // Let's define a command.
+  var commands = {
+    'good morning timothy': function() { alert('Good Morning, Autumn!'); }
+  };
+
+  // Add our commands to annyang
+  annyang.addCommands(commands);
+
+  // Start listening.
+  annyang.start();
+}
+
+if (annyang) {
+  // Let's define a command.
+  var commands = {
+    'what time is it': function() { alert('happy oclock'); }
+  };
+
+  // Add our commands to annyang
+  annyang.addCommands(commands);
+
+  // Start listening.
+  annyang.start();
+}
+
+if (annyang) {
+  // Let's define a command.
+  var commands = {
+    'how much time is left': function() { alert('Not much'); }
+  };
+
+  // Add our commands to annyang
+  annyang.addCommands(commands);
+
+  // Start listening.
+  annyang.start();
+}
 </script>
