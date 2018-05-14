@@ -244,7 +244,7 @@ input[type="submit"] {
   position: relative;
   text-align: center;
   padding: 0% 15%;
-  top: -119px;
+  top: -47px;
 }
 
 .signDisplay{
@@ -272,11 +272,11 @@ input[type="submit"] {
   position: relative;
   color: white;
   font-size: 50px;
-  left: 32%;
-  top: -904px;
-  border: solid;
+  left: 38%;
+  top: -827px;
+  border: solid 7px;
   width: 37%;
-  padding: 2% 7%;
+  padding: 2% 0% 2% 4%;
 }
 
 .totalTime{
@@ -294,7 +294,7 @@ input[type="submit"] {
   position: relative;
   left: 43%;
   margin: 19px -38px;
-  top: -1054px;
+  top: -988px;
 }
 
 #travel{
@@ -303,7 +303,7 @@ input[type="submit"] {
   margin: 30px 199px;
   position: relative;
   left: -80%;
-  top: -560px;
+  top: -435px;
   text-align: center;
 }
 
@@ -353,9 +353,9 @@ button:focus {
 }
 
 iframe{
-  position: relative;
+  position: absolute;
   display: inline-block;
-  top: -1756px;
+  top: 60px;
   width: 25%;
   height: 82px;
   left: 74%;
@@ -363,13 +363,14 @@ iframe{
 
 #roboAI{
   position: absolute;
-  top: 265px;
+  top: 171px;
   left: 76%;
   width: 345px;
   display: inline;
   overflow: scroll;
   height: 426px;
 }
+
 
 #roboAI button{
     height: 35px;
@@ -378,7 +379,24 @@ iframe{
 
 .weather{
   position: relative;
-  top: -1580px;
+  top: -1563px;
   text-align: center;
   left: -36%;
+}
+
+.clocks{
+  position: relative;
+  top: 78px;
+  font-size: 23px;
+  left: -7%;
+}
+
+.quotes{
+  position: relative;
+  top: -1141px;
+  left: 75%;
+  text-align: center;
+  background-color: #0000ff0f;
+  width: 23%;
+  padding: 2% 5%;
 }
