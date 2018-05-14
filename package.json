@@ -6,7 +6,8 @@
     "artyom.js": "^1.0.6",
     "express": "^4.16.3",
     "socket.io": "^2.1.0",
-    "text-to-speech-js": "^1.1.8"
+    "text-to-speech-js": "^1.1.8",
+    "youtube-audio-stream": "^0.2.0"
   },
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
   "version": "1.0.0",

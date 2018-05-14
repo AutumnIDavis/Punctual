@@ -4,11 +4,13 @@
   <div class="task_list_title">
     <h1>Tasks</h1>
   </div>
+<div class="iframeTest">
   <iframe
       width="350"
       height="430"
       src="">
   </iframe>
+</div>
 
 
 <div id="roboAI">
@@ -134,9 +136,31 @@
   </body>
 </div>
 
+<iframe id="player" width="854" height="480" src="https://www.youtube.com/embed/IcrbM1l_BoI?list=RDQMSvh1AbADqQE&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 
 <script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // gets current time
     function checkTime(i) {
@@ -365,6 +389,35 @@ botui.message.bot({
 });
 
 
+function weather() {
+
+  var location = document.getElementById("location");
+  var apiKey = 'f536d4c3330c0a1391370d1443cee848'; // PLEASE SIGN UP FOR YOUR OWN API KEY
+  var url = 'https://api.forecast.io/forecast/';
+
+  navigator.geolocation.getCurrentPosition(success, error);
+
+  function success(position) {
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
+
+    location.innerHTML = 'Latitude is ' + latitude + '° <br> Longitude is ' + longitude + '°';
+
+     $.getJSON(url + apiKey + "/" + latitude + "," + longitude + "?callback=?", function(data) {
+      $('#temp').html(data.currently.temperature + '° F');
+      $('#minutely').html(data.minutely.summary);
+    });
+  }
+
+  function error() {
+    location.innerHTML = "Unable to retrieve your location";
+  }
+
+  location.innerHTML = "Locating...";
+}
+
+weather();
+
 </script>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
@@ -470,7 +523,7 @@ if (annyang) {
 if (annyang) {
   // Let's define a command.
   var commands = {
-    'timothy please explain the app': function() { var msg = new SpeechSynthesisUtterance('this app is designed to make your mornings easier, by putting everything you need to stay on time, right at your fingertips');
+    'explain the app': function() { var msg = new SpeechSynthesisUtterance('this app is designed to make your mornings easier, by putting everything you need to stay on time, right at your fingertips');
     window.speechSynthesis.speak(msg); }
   };
 
@@ -484,7 +537,7 @@ if (annyang) {
 if (annyang) {
   // Let's define a command.
   var commands = {
-    'like what': function() { var msg = new SpeechSynthesisUtterance('the weather, for example, is right here, so you know exactly how to dress for the day');
+    'continue': function() { var msg = new SpeechSynthesisUtterance('the weather, for example, is right here, so you know exactly how to dress for the day');
     window.speechSynthesis.speak(msg); }
   };
 
@@ -498,7 +551,7 @@ if (annyang) {
 if (annyang) {
   // Let's define a command.
   var commands = {
-    'okay what else': function() { var msg = new SpeechSynthesisUtterance('I also take into account traveling time and distance, to make sure you have plenty of time to get to where you need to go on time.');
+    'go on': function() { var msg = new SpeechSynthesisUtterance('I also take into account traveling time and distance, to make sure you have plenty of time to get to where you need to go on time.');
     window.speechSynthesis.speak(msg); }
   };
 
@@ -523,41 +576,18 @@ if (annyang) {
   annyang.start();
 }
 
+if (annyang) {
+  // Let's define a command.
+  var commands = {
+    'hello': function() { var msg = new SpeechSynthesisUtterance('hello');
+    window.speechSynthesis.speak(msg); }
+  };
 
+  // Add our commands to annyang
+  annyang.addCommands(commands);
 
-
-
-
-
-
-
-
-function weather() {
-
-  var location = document.getElementById("location");
-  var apiKey = 'f536d4c3330c0a1391370d1443cee848'; // PLEASE SIGN UP FOR YOUR OWN API KEY
-  var url = 'https://api.forecast.io/forecast/';
-
-  navigator.geolocation.getCurrentPosition(success, error);
-
-  function success(position) {
-    latitude = position.coords.latitude;
-    longitude = position.coords.longitude;
-
-    location.innerHTML = 'Latitude is ' + latitude + '° <br> Longitude is ' + longitude + '°';
-
-     $.getJSON(url + apiKey + "/" + latitude + "," + longitude + "?callback=?", function(data) {
-      $('#temp').html(data.currently.temperature + '° F');
-      $('#minutely').html(data.minutely.summary);
-    });
-  }
-
-  function error() {
-    location.innerHTML = "Unable to retrieve your location";
-  }
-
-  location.innerHTML = "Locating...";
+  // Start listening.
+  annyang.start();
 }
 
-weather();
 </script>
