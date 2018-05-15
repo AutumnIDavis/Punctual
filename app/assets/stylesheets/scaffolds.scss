@@ -45,6 +45,7 @@ body {
 	-webkit-box-shadow: 0 0 4px 3px rgba(0,0,0,.3);
 	box-shadow: 0 0 4px 4px rgba(0,0,0,.03);
 	padding: 1em 0;
+  height: 730px;
 }
 
 .task_list_title {
@@ -161,7 +162,7 @@ label {
 }
 input[type="text"], textarea {
 	width: 100%;
-	margin: 1.5em 2% 4em 0;
+	margin: 1.5em 2% 1em 0;
 	display: inline-block;
 	outline: none;
 	background: rgba(250, 250, 250, 0.15);
@@ -169,6 +170,7 @@ input[type="text"], textarea {
 	height: 40px;
 	border-radius: 4px;
 	padding: 1em 2em;
+
 }
 input[type="email"], email_field area {
 	width: 100%;
@@ -204,7 +206,7 @@ input[type="number"], #task_time {
 	padding: 1em 2em;
 }
 textarea {
-	height: 200px;
+    height: 50px;
 }
 #task_time {
   display: block;
@@ -244,7 +246,8 @@ input[type="submit"] {
   position: relative;
   text-align: center;
   padding: 0% 15%;
-  top: -119px;
+  top: -760px;
+  left: 18%;
 }
 
 .signDisplay{
@@ -265,18 +268,20 @@ input[type="submit"] {
 
 .newT{
   position: relative;
-  left: 0%;
+  left: -1%;
+  width: 617px;
+  top: 340px;
 }
 
-#time{
+#ticktock{
   position: relative;
   color: white;
   font-size: 50px;
-  left: 32%;
-  top: -904px;
-  border: solid;
+  left: 38%;
+  top: -800px;
+  border: solid 7px;
   width: 37%;
-  padding: 2% 7%;
+  padding: 2% 0% 2% 4%;
 }
 
 .totalTime{
@@ -294,7 +299,7 @@ input[type="submit"] {
   position: relative;
   left: 43%;
   margin: 19px -38px;
-  top: -1054px;
+  top: -988px;
 }
 
 #travel{
@@ -302,8 +307,8 @@ input[type="submit"] {
   padding: 36px 29px;
   margin: 30px 199px;
   position: relative;
-  left: -80%;
-  top: -560px;
+  left: -21%;
+  top: -1414px;
   text-align: center;
 }
 
@@ -353,9 +358,9 @@ button:focus {
 }
 
 iframe{
-  position: relative;
+  position: absolute;
   display: inline-block;
-  top: -1756px;
+  top: 60px;
   width: 25%;
   height: 82px;
   left: 74%;
@@ -363,13 +368,14 @@ iframe{
 
 #roboAI{
   position: absolute;
-  top: 265px;
+  top: 171px;
   left: 76%;
   width: 345px;
   display: inline;
   overflow: scroll;
-  height: 426px;
+  height: 309px;
 }
+
 
 #roboAI button{
     height: 35px;
@@ -377,8 +383,51 @@ iframe{
 }
 
 .weather{
-  position: relative;
-  top: -1580px;
+  position: absolute;
+  top: 63px;
   text-align: center;
-  left: -36%;
+  left: 3%;
+}
+
+.clocks{
+  position: relative;
+  top: -202px;
+  font-size: 23px;
+  left: -7%;
+}
+
+.quotes{
+  position: absolute;
+  top: 600px;
+  left: 29%;
+  text-align: center;
+  background-color: #0000ff0f;
+  width: 42%;
+  padding: 1% 5%;
+}
+
+.newT{
+  position: relative;
+  left: 123%;
+  width: 450px;
+  top: 47px;
+}
+
+#timeInput{
+  margin: 30px;
+}
+
+#alarm-container{
+  text-align: center;
+  display: inline-flex;
+  position: relative;
+  left: 105%;
+  top: 292px;
+}
+
+#buttonHolder{
+  display: inline-flex;
+  position: relative;
+  left: 75%;
+  top: -120px;
 }
