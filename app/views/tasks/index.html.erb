@@ -50,12 +50,38 @@
       </tbody>
     </table>
     <br><br>
+
+
+
+
+
+
     <div class="newT">
-      <%= link_to 'New Task', new_task_path %>
+      <%= form_with(model: @task, local: true) do |form| %>
+
+
+        <div class="field">
+          <%= form.label :title %>
+          <%= form.text_field :title %>
+        </div>
+
+        <div class="field">
+          <%= form.label :description %>
+          <%= form.text_area :description %>
+        </div>
+
+        <div class="field">
+          <%= form.label :time %>
+          <%= form.number_field :time %>
+          <p><em>(in minutes)</em></p>
+        </div>
+      <br>
+        <div class="actions">
+          <%= form.submit %>
+        </div>
+      <% end %>
     </div>
-    <div class="totalTime">
-      <br><br><br><br>
-    </div>
+
   </div>
 
   <br>
@@ -114,8 +140,8 @@
 
 
     <div class="clocks">
-        <div id="time"></div>
-
+        <div id="ticktock"></div>
+        <br>
         <div class="countDown">
           <div>You have <span id="timer"></span> minutes left</div>
         </div>
@@ -133,6 +159,8 @@
   <h1><div id="temp"></div><div id="minutely"></div></h1>
   <h2><div id="location"></div></h2>
 </div>
+
+<!-- embed youtube playlist -->
 
 <iframe id="player" width="854" height="480" src="https://www.youtube.com/embed/IcrbM1l_BoI?list=RDQMSvh1AbADqQE&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
@@ -389,7 +417,7 @@ weather();
       // add a zero in front of numbers<10
       m = checkTime(m);
       s = checkTime(s);
-      document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+      document.getElementById('ticktock').innerHTML = h + ":" + m + ":" + s;
       t = setTimeout(function() {
         startTime()
       }, 500);
