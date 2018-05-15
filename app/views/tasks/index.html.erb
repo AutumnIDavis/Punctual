@@ -25,7 +25,7 @@
 		</div>
 
 		<div id='alarm-container'>
-			<h3>Set Alarm Time</h3>
+			<!-- <h3>Set Alarm Time</h3> -->
 				<label>
 					<div>
 					<select id='alarmhrs' ></select>
@@ -193,12 +193,14 @@
           <div>You have <span id="timer"></span> minutes left</div>
         </div>
 
-        <p style= "position:  relative;top: -867px;left: 36%;">Total Time Needed: <%= Task.sum(:time) %> minutes</p>
+        <p style= "position:  relative;top: -867px;left: 46%;">Total Time Needed: <%= Task.sum(:time) %> minutes</p>
 
             <!-- codepen alarm clock -->
-
+            <!-- <div class="setA">
+               <h3>Set Alarm Time</h3>
+            </div> -->
         		<div id='alarm-container'>
-        			<h3 style= "display:block;">Set Alarm Time</h3>
+
         				<label>
         					<div>
         					<select id='alarmhrs' ></select>
@@ -274,7 +276,7 @@
 
 <script>
 // alarm clock
-var sound = new Audio("https://www.freespecialeffects.co.uk/soundfx/animals/duck1.wav");
+var sound = new Audio("https://www.freespecialeffects.co.uk/soundfx/music/fanfare3.wav");
 		sound.loop = true;
 
 // var h2 = document.getElementById('clock');
@@ -373,7 +375,7 @@ function alarmSet() {
     var alarmTime = addZero(selectedHour) + ":" + addZero(selectedMin) + ":" + addZero(selectedSec) + selectedAP;
     console.log('alarmTime:' + alarmTime);
 
-    document.getElementById('alarmhrs').disabled = true;
+  document.getElementById('alarmhrs').disabled = true;
 	document.getElementById('alarmmins').disabled = true;
 	document.getElementById('alarmsecs').disabled = true;
 	document.getElementById('ampm').disabled = true;
@@ -410,7 +412,7 @@ setInterval(function(){
 		hours = hours;
 	}
 
-	var currentTime = h2.textContent = addZero(hours) + ":" + addZero(minutes) + ":" + addZero(seconds) + "" + ampm;
+	var currentTime = addZero(hours) + ":" + addZero(minutes) + ":" + addZero(seconds) + "" + ampm;
 
 
 	if (alarmTime == currentTime) {
@@ -420,7 +422,7 @@ setInterval(function(){
 },1000);
 
 
-	// console.log('currentTime:' + currentTime);
+	console.log('currentTime:' + currentTime);
 
 }
 
@@ -437,7 +439,7 @@ function alarmClear() {
 
 
 
-
+// quotes
 
 
 $(document).ready(function(){

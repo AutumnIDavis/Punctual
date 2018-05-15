@@ -223,9 +223,13 @@ input[type="submit"] {
 	display: inline-block;
 	transition: all .4s ease-in-out;
 	cursor: pointer;
-	color: $dark;
+	color: #eb4997;;
   position: relative;
   left: 0%;
+  box-shadow: 2px 5px 30px rgba(42, 121, 122, 0.73);
+  will-change: transform, filter;
+  transition: all 0.3s ease-out;
+  border-radius: 10%;
 	&:hover {
 		background: $dark;
 		color: white;
@@ -246,8 +250,9 @@ input[type="submit"] {
   position: relative;
   text-align: center;
   padding: 0% 15%;
-  top: -760px;
+  top: -635px;
   left: 18%;
+  // z-index: -1;
 }
 
 .signDisplay{
@@ -257,10 +262,6 @@ input[type="submit"] {
   top: 9px;
 }
 
-.newT{
-  position: relative;
-  left: 40%;
-}
 
 .editPage{
   padding: 30px;
@@ -277,10 +278,10 @@ input[type="submit"] {
   position: relative;
   color: white;
   font-size: 50px;
-  left: 38%;
+  left: 47%;
   top: -800px;
   border: solid 7px;
-  width: 37%;
+  width: 18%;
   padding: 2% 0% 2% 4%;
 }
 
@@ -297,9 +298,11 @@ input[type="submit"] {
 
 .countDown{
   position: relative;
-  left: 43%;
+  left: 51%;
   margin: 19px -38px;
-  top: -988px;
+  top: -1026px;
+  color: red;
+
 }
 
 #travel{
@@ -307,8 +310,8 @@ input[type="submit"] {
   padding: 36px 29px;
   margin: 30px 199px;
   position: relative;
-  left: -21%;
-  top: -1414px;
+  left: -25%;
+  top: -1297px;
   text-align: center;
 }
 
@@ -374,6 +377,7 @@ iframe{
   display: inline;
   overflow: scroll;
   height: 309px;
+  z-index: 1;
 }
 
 
@@ -387,30 +391,33 @@ iframe{
   top: 63px;
   text-align: center;
   left: 3%;
+  color: #ed569e;
 }
 
 .clocks{
   position: relative;
-  top: -202px;
+  top: -801px;
   font-size: 23px;
   left: -7%;
 }
 
 .quotes{
   position: absolute;
-  top: 600px;
-  left: 29%;
+  top: 700px;
+  left: 75%;
   text-align: center;
   background-color: #0000ff0f;
-  width: 42%;
+  width: 22%;
   padding: 1% 5%;
+  z-index: 1;
 }
 
 .newT{
   position: relative;
-  left: 123%;
-  width: 450px;
-  top: 47px;
+  left: -4%;
+  width: 663px;
+  top: 294px;
+  z-index: 2;
 }
 
 #timeInput{
@@ -418,16 +425,40 @@ iframe{
 }
 
 #alarm-container{
-  text-align: center;
-  display: inline-flex;
-  position: relative;
-  left: 105%;
-  top: 292px;
+ text-align: center;
+ display: inline-flex;
+ position: absolute;
+ left: 80%;
+ top: 526px;
+ z-index: 1;
+
 }
 
 #buttonHolder{
   display: inline-flex;
   position: relative;
   left: 75%;
-  top: -120px;
+  top: -210px;
+  z-index: 1;
+}
+
+#setButton{
+  z-index: 1;
+  width: 90px;
+  margin: 0% 70%;
+  height: 90px;
+}
+
+#clearButton{
+  z-index: 1;
+  width: 90px;
+  margin: 0% 115%;
+  height: 90px;
+}
+
+.setA{
+  display: block;
+  position: absolute;
+  left: 87%;
+  top: -393%;
 }
