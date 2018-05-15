@@ -45,6 +45,7 @@ body {
 	-webkit-box-shadow: 0 0 4px 3px rgba(0,0,0,.3);
 	box-shadow: 0 0 4px 4px rgba(0,0,0,.03);
 	padding: 1em 0;
+  height: 730px;
 }
 
 .task_list_title {
@@ -245,7 +246,8 @@ input[type="submit"] {
   position: relative;
   text-align: center;
   padding: 0% 15%;
-  top: -47px;
+  top: -760px;
+  left: 18%;
 }
 
 .signDisplay{
@@ -266,7 +268,9 @@ input[type="submit"] {
 
 .newT{
   position: relative;
-  left: 0%;
+  left: -1%;
+  width: 617px;
+  top: 340px;
 }
 
 #ticktock{
@@ -303,8 +307,8 @@ input[type="submit"] {
   padding: 36px 29px;
   margin: 30px 199px;
   position: relative;
-  left: -80%;
-  top: -725px;
+  left: -21%;
+  top: -1414px;
   text-align: center;
 }
 
@@ -369,7 +373,7 @@ iframe{
   width: 345px;
   display: inline;
   overflow: scroll;
-  height: 426px;
+  height: 309px;
 }
 
 
@@ -379,22 +383,22 @@ iframe{
 }
 
 .weather{
-  position: relative;
-  top: -1814px;
+  position: absolute;
+  top: 63px;
   text-align: center;
-  left: -36%;
+  left: 3%;
 }
 
 .clocks{
   position: relative;
-  top: -244px;
+  top: -202px;
   font-size: 23px;
   left: -7%;
 }
 
 .quotes{
   position: absolute;
-  top: 745px;
+  top: 600px;
   left: 29%;
   text-align: center;
   background-color: #0000ff0f;
@@ -411,4 +415,19 @@ iframe{
 
 #timeInput{
   margin: 30px;
+}
+
+#alarm-container{
+  text-align: center;
+  display: inline-flex;
+  position: relative;
+  left: 105%;
+  top: 292px;
+}
+
+#buttonHolder{
+  display: inline-flex;
+  position: relative;
+  left: 75%;
+  top: -120px;
 }
