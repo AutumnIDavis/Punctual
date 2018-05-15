@@ -1,0 +1,5 @@
+$(document).ready(function() {
+  $('.remove-task-btn').on("ajax:success", function(e) {
+    $(e.currentTarget).parent().hide();
+  });
+});
