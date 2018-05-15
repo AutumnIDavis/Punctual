@@ -90,7 +90,7 @@
             <td><%= '|' %></td>
             <td><%= link_to 'Edit', edit_task_path(task) %></td> -->
             <td><%= '|' %></td>
-            <td><%= link_to 'Delete', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td class="remove-task-btn"><%= link_to 'Delete', task, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
             <td><%= '|' %></td>
           </tr>
         <% end %>
@@ -102,7 +102,7 @@
 <!-- new task -->
 
     <div class="newT">
-      <%= form_with(model: @task, local: true) do |form| %>
+      <%= form_with(model: @task, remote: true, local: true) do |form| %>
 
 
         <div class="field">
@@ -273,6 +273,7 @@
 
 
 <script>
+
 // alarm clock
 var sound = new Audio("https://www.freespecialeffects.co.uk/soundfx/music/fanfare3.wav");
 		sound.loop = true;
@@ -587,7 +588,9 @@ $(document).ready(function(){
 		};//end for loop
 
 	});//end quoteButton function
-
+  $.getJSON("https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=", function(a) {
+    $("body").append(a[0].content + "<p>&mdash; " + a[0].title + "</p>")
+  });
 });//end document ready
 
 
@@ -657,6 +660,7 @@ weather();
 // countdown timer
       var cD = <%= Task.sum(:time) %>
       // var t = duration_value;
+      var pageLoadTime = new Date();
 
         document.getElementById('timer').innerHTML =
         cD + ":" + 00;
@@ -738,6 +742,10 @@ $(function() {
                 var distance_in_mile = distance.value / 1609.34; // the mile
                 var duration_text = duration.text;
                 var duration_value = duration.value;
+
+                var newTimeLeft = Math.ceil(cD - (duration.value / 60) - (Date.now() - pageLoadTime.getTime()) / 60000);
+                document.getElementById('timer').innerHTML = newTimeLeft + ":" + "00";
+
                 $('#in_mile').text(distance_in_mile.toFixed(2));
                 $('#in_kilo').text(distance_in_kilo.toFixed(2));
                 $('#duration_text').text(duration_text);
@@ -756,9 +764,7 @@ $(function() {
 });
 
 
-$.getJSON("https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=", function(a) {
-  $("body").append(a[0].content + "<p>&mdash; " + a[0].title + "</p>")
-});
+
 
 //Good morning texting-like robot below
 
