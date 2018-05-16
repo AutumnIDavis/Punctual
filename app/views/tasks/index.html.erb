@@ -69,7 +69,7 @@
 <!-- task display block -->
 
 
-  <div class="taskDisplay">
+  <div class="taskDisplay" id="NewTask">
     <table>
       <thead>
         <tr>
@@ -80,7 +80,7 @@
         </tr>
       </thead>
 
-      <tbody>
+      <tbody id="task-list">
         <% @tasks.each do |task| %>
           <tr>
             <td><%= task.title %></td>
@@ -183,6 +183,7 @@
   </div>
 
 
+
 <div class="clocks">
       <div id="ticktock"></div>
         <br>
@@ -202,19 +203,21 @@
 
 
 <!-- weather // tryenlight.github.io/demo/weather-project/ -->
-
 <div class="weather">
   <h1><div id="temp"></div><div id="minutely"></div></h1>
   <h2><div id="location"></div></h2>
+  <h2><div id="windSpeed"></div></h2>
+
 </div>
 
-<!-- embed youtube playlist -->
 
+
+<!-- embed youtube playlist -->
 <iframe id="player" width="854" height="480" src="https://www.youtube.com/embed/IcrbM1l_BoI?list=RDQMSvh1AbADqQE&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 
-<!-- daily quotes -->
 
+<!-- daily quotes -->
 <div class="quotes">
   <div id="container">
     <h2>Get Your Daily Quote</h2>
@@ -228,6 +231,28 @@
     </div><!--end buttonContainer-->
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <script>
@@ -397,8 +422,6 @@ function alarmClear() {
 
 
 // quotes
-
-
 $(document).ready(function(){
 		var quoteSource=[
 		{
@@ -556,7 +579,6 @@ $(document).ready(function(){
 
 
 // get current weather
-
 function weather() {
 
   var location = document.getElementById("location");
@@ -568,12 +590,14 @@ function weather() {
   function success(position) {
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
+    windSpeed = position.coords.windSpeed;
 
-    location.innerHTML = 'Latitude is ' + latitude + '° <br> Longitude is ' + longitude + '°';
+    location.innerHTML = 'Latitude is ' + latitude + '° <br> Longitude is ' + longitude + '°' + 'Windspeed: ' ;
 
      $.getJSON(url + apiKey + "/" + latitude + "," + longitude + "?callback=?", function(data) {
       $('#temp').html(data.currently.temperature + '° F');
-      $('#minutely').html(data.minutely.summary);
+      $('#minutely').html(data.hourly.summary);
+      $('#windSpeed').html(data.currently.windSpeed + 'mph');
     });
   }
 
