@@ -69,7 +69,7 @@
 <!-- task display block -->
 
 
-  <div class="taskDisplay">
+  <div class="taskDisplay" id="NewTask">
     <table>
       <thead>
         <tr>
@@ -80,7 +80,7 @@
         </tr>
       </thead>
 
-      <tbody>
+      <tbody id="task-list">
         <% @tasks.each do |task| %>
           <tr>
             <td><%= task.title %></td>
@@ -102,7 +102,7 @@
 <!-- new task -->
 
     <div class="newT">
-      <%= form_with(model: @task, remote: true, local: true) do |form| %>
+      <%= form_with(model: @task, remote: true) do |form| %>
 
 
         <div class="field">
@@ -184,59 +184,17 @@
 
 
 
-    <div class="clocks">
-        <div id="ticktock"></div>
+<div class="clocks">
+      <div id="ticktock"></div>
         <br>
-        <div class="countDown">
-          <div>You have <span id="timer"></span> minutes left</div>
-        </div>
+      <div class="countDown">
+        <div>You have <span id="timer"></span> minutes left</div>
+      </div>
 
-        <p style= "position:  relative;top: -867px;left: 46%;">Total Time Needed: <%= Task.sum(:time) %> minutes</p>
+      <p style= "position:  relative;top: -867px;left: 46%;">Total Time Needed: <%= Task.sum(:time) %> minutes</p>
 
-            <!-- codepen alarm clock -->
-            <!-- <div class="setA">
-               <h3>Set Alarm Time</h3>
-            </div> -->
-        		<div id='alarm-container'>
+		</div>
 
-        				<label>
-        					<div>
-        					<select id='alarmhrs' ></select>
-        					</div>
-        				</label>
-        				<label>
-        					<div>
-        					<select id='alarmmins' ></select>
-        					</div>
-        				</label>
-        				<label>
-        					<div>
-        					<select id='alarmsecs' ></select>
-        					</div>
-        				</label>
-        				<label>
-        					<div>
-        						<select id="ampm">
-        							<option value="AM">AM</option>
-        							<option value="PM">PM</option>
-        						</select>
-        					</div>
-        				</label>
-        				</div>
-
-                  <!-- alarm buttons -->
-
-                <div id='buttonHolder'>
-            			<div>
-            				<button  id='setButton' onClick='alarmSet()'>Set Alarm</button>
-            			</div>
-
-            			<div>
-            				<button  id='clearButton' onClick='alarmClear()'>Clear Alarm</button>
-            			</div>
-            		</div>
-
-        		</div>
         </div>
     </div>
 
@@ -245,18 +203,21 @@
 
 
 <!-- weather // tryenlight.github.io/demo/weather-project/ -->
-
 <div class="weather">
   <h1><div id="temp"></div><div id="minutely"></div></h1>
   <h2><div id="location"></div></h2>
+  <h2><div id="windSpeed"></div></h2>
+
 </div>
 
-<!-- embed youtube playlist -->
 
+
+<!-- embed youtube playlist -->
 <iframe id="player" width="854" height="480" src="https://www.youtube.com/embed/IcrbM1l_BoI?list=RDQMSvh1AbADqQE&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-<!-- daily quotes -->
 
+
+<!-- daily quotes -->
 <div class="quotes">
   <div id="container">
     <h2>Get Your Daily Quote</h2>
@@ -270,6 +231,28 @@
     </div><!--end buttonContainer-->
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <script>
@@ -439,8 +422,6 @@ function alarmClear() {
 
 
 // quotes
-
-
 $(document).ready(function(){
 		var quoteSource=[
 		{
@@ -589,7 +570,7 @@ $(document).ready(function(){
 
 	});//end quoteButton function
   $.getJSON("https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=", function(a) {
-    $("body").append(a[0].content + "<p>&mdash; " + a[0].title + "</p>")
+    // $("body").append(a[0].content + "<p>&mdash; " + a[0].title + "</p>")
   });
 });//end document ready
 
@@ -598,7 +579,6 @@ $(document).ready(function(){
 
 
 // get current weather
-
 function weather() {
 
   var location = document.getElementById("location");
@@ -610,12 +590,14 @@ function weather() {
   function success(position) {
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
+    windSpeed = position.coords.windSpeed;
 
-    location.innerHTML = 'Latitude is ' + latitude + '° <br> Longitude is ' + longitude + '°';
+    location.innerHTML = 'Latitude is ' + latitude + '° <br> Longitude is ' + longitude + '°' + 'Windspeed: ' ;
 
      $.getJSON(url + apiKey + "/" + latitude + "," + longitude + "?callback=?", function(data) {
       $('#temp').html(data.currently.temperature + '° F');
-      $('#minutely').html(data.minutely.summary);
+      $('#minutely').html(data.hourly.summary);
+      $('#windSpeed').html(data.currently.windSpeed + 'mph');
     });
   }
 

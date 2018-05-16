@@ -311,7 +311,7 @@ input[type="submit"] {
   margin: 30px 199px;
   position: relative;
   left: -25%;
-  top: -1181px;
+  top: -1110px;
   text-align: center;
 }
 
@@ -392,6 +392,7 @@ iframe{
   text-align: center;
   left: 3%;
   color: #ed569e;
+  width: 24%;
 }
 
 .clocks{
@@ -418,6 +419,7 @@ iframe{
   width: 663px;
   top: 294px;
   z-index: 2;
+  display: inline-flex;
 }
 
 #timeInput{
