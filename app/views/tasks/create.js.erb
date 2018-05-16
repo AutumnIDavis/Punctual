@@ -1,8 +1,13 @@
+console.log("Hello")
+
 $(document).ready(function() {
-  $('.remove-task-btn').on("ajax:success", function(e) {
-    $(e.currentTarget).parent().hide();
+  $('NewTask').on("ajax:success", function(e) {
+    $("<%= j render @task %>").appendTo(".NewTask");
   });
 });
+
+
+
 
 // google apis
 
@@ -290,3 +295,10 @@ function alarmClear() {
 	document.getElementById('ampm').disabled = false;
 	sound.pause();
 }
+
+
+
+
+
+
+console.log("Howdy")

@@ -102,7 +102,7 @@
 <!-- new task -->
 
     <div class="newT">
-      <%= form_with(model: @task, remote: true, local: true) do |form| %>
+      <%= form_with(model: @task, remote: true) do |form| %>
 
 
         <div class="field">
@@ -183,60 +183,17 @@
   </div>
 
 
-
-    <div class="clocks">
-        <div id="ticktock"></div>
+<div class="clocks">
+      <div id="ticktock"></div>
         <br>
-        <div class="countDown">
-          <div>You have <span id="timer"></span> minutes left</div>
-        </div>
+      <div class="countDown">
+        <div>You have <span id="timer"></span> minutes left</div>
+      </div>
 
-        <p style= "position:  relative;top: -867px;left: 46%;">Total Time Needed: <%= Task.sum(:time) %> minutes</p>
+      <p style= "position:  relative;top: -867px;left: 46%;">Total Time Needed: <%= Task.sum(:time) %> minutes</p>
 
-            <!-- codepen alarm clock -->
-            <!-- <div class="setA">
-               <h3>Set Alarm Time</h3>
-            </div> -->
-        		<div id='alarm-container'>
+		</div>
 
-        				<label>
-        					<div>
-        					<select id='alarmhrs' ></select>
-        					</div>
-        				</label>
-        				<label>
-        					<div>
-        					<select id='alarmmins' ></select>
-        					</div>
-        				</label>
-        				<label>
-        					<div>
-        					<select id='alarmsecs' ></select>
-        					</div>
-        				</label>
-        				<label>
-        					<div>
-        						<select id="ampm">
-        							<option value="AM">AM</option>
-        							<option value="PM">PM</option>
-        						</select>
-        					</div>
-        				</label>
-        				</div>
-
-                  <!-- alarm buttons -->
-
-                <div id='buttonHolder'>
-            			<div>
-            				<button  id='setButton' onClick='alarmSet()'>Set Alarm</button>
-            			</div>
-
-            			<div>
-            				<button  id='clearButton' onClick='alarmClear()'>Clear Alarm</button>
-            			</div>
-            		</div>
-
-        		</div>
         </div>
     </div>
 
@@ -254,6 +211,7 @@
 <!-- embed youtube playlist -->
 
 <iframe id="player" width="854" height="480" src="https://www.youtube.com/embed/IcrbM1l_BoI?list=RDQMSvh1AbADqQE&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
 
 <!-- daily quotes -->
 
@@ -589,7 +547,7 @@ $(document).ready(function(){
 
 	});//end quoteButton function
   $.getJSON("https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=", function(a) {
-    $("body").append(a[0].content + "<p>&mdash; " + a[0].title + "</p>")
+    // $("body").append(a[0].content + "<p>&mdash; " + a[0].title + "</p>")
   });
 });//end document ready
 
