@@ -165,7 +165,7 @@ input[type="text"], textarea {
 	margin: 1.5em 2% 1em 0;
 	display: inline-block;
 	outline: none;
-	background: rgba(250, 250, 250, 0.15);
+	background: rgba(250, 250, 250, 0.4);;
 	border: none;
 	height: 40px;
 	border-radius: 4px;
@@ -207,6 +207,9 @@ input[type="number"], #task_time {
 }
 textarea {
     height: 50px;
+    top: 25px;
+    position: relative;
+    left: 8%;
 }
 #task_time {
   display: block;
@@ -219,7 +222,7 @@ input[type="submit"] {
 	border: none;
 	height: 40px;
 	border-radius: 4px;
-	width: 25%;
+	width: 35%;
 	display: inline-block;
 	transition: all .4s ease-in-out;
 	cursor: pointer;
@@ -252,6 +255,7 @@ input[type="submit"] {
   padding: 0% 15%;
   top: -635px;
   left: 18%;
+  overflow: scroll;
   // z-index: -1;
 }
 
@@ -265,13 +269,6 @@ input[type="submit"] {
 
 .editPage{
   padding: 30px;
-}
-
-.newT{
-  position: relative;
-  left: -1%;
-  width: 617px;
-  top: 340px;
 }
 
 #ticktock{
@@ -310,8 +307,8 @@ input[type="submit"] {
   padding: 36px 29px;
   margin: 30px 199px;
   position: relative;
-  left: -25%;
-  top: -1110px;
+  left: -22%;
+  top: -943px;
   text-align: center;
 }
 
@@ -397,7 +394,7 @@ iframe{
 
 .clocks{
   position: relative;
-  top: -801px;
+  top: -550px;
   font-size: 23px;
   left: -7%;
 }
@@ -410,16 +407,17 @@ iframe{
   background-color: #0000ff0f;
   width: 22%;
   padding: 1% 5%;
-  z-index: 1;
+  z-index: 2;
 }
 
 .newT{
   position: relative;
-  left: -4%;
-  width: 663px;
-  top: 294px;
+  left: -17%;
+  width: 1963px;
+  top: -280px;
   z-index: 2;
   display: inline-flex;
+  background-color: #ffffff14;
 }
 
 #timeInput{

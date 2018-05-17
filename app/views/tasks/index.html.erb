@@ -6,251 +6,231 @@
   </div>
 
 
-
-<div id="roboAI">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-    <main class="bot-wrapper centered">
-    <div id="bot">
-      <bot-ui></bot-ui>
+    <!-- good morning bot -->
+    <div id="roboAI">
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+        <main class="bot-wrapper centered">
+        <div id="bot">
+          <bot-ui></bot-ui>
+        </div>
+        </main>
+        <script src='https://cdn.jsdelivr.net/vue/latest/vue.min.js'></script>
+        <script src='https://unpkg.com/botui/build/botui.min.js'></script>
     </div>
-    </main>
-    <script src='https://cdn.jsdelivr.net/vue/latest/vue.min.js'></script>
-    <script src='https://unpkg.com/botui/build/botui.min.js'></script>
-</div>
 
 
-<!-- codepen alarm clock -->
-<div id='main-container'>
-			<h2 id='clock'></h2>
-		</div>
+    <!-- codepen alarm clock -->
+    <div id='main-container'>
+    			<h2 id='clock'></h2>
+    		</div>
 
-		<div id='alarm-container'>
-			<!-- <h3>Set Alarm Time</h3> -->
-				<label>
-					<div>
-					<select id='alarmhrs' ></select>
-					</div>
-				</label>
-				<label>
-					<div>
-					<select id='alarmmins' ></select>
-					</div>
-				</label>
-				<label>
-					<div>
-					<select id='alarmsecs' ></select>
-					</div>
-				</label>
-				<label>
-					<div>
-						<select id="ampm">
-							<option value="AM">AM</option>
-							<option value="PM">PM</option>
-						</select>
-					</div>
-				</label>
-				</div>
-		</div>
+    		<div id='alarm-container'>
+    			<!-- <h3>Set Alarm Time</h3> -->
+    				<label>
+    					<div>
+    					<select id='alarmhrs' ></select>
+    					</div>
+    				</label>
+    				<label>
+    					<div>
+    					<select id='alarmmins' ></select>
+    					</div>
+    				</label>
+    				<label>
+    					<div>
+    					<select id='alarmsecs' ></select>
+    					</div>
+    				</label>
+    				<label>
+    					<div>
+    						<select id="ampm">
+    							<option value="AM">AM</option>
+    							<option value="PM">PM</option>
+    						</select>
+    					</div>
+    				</label>
+    				</div>
+    		</div>
 
-		<div id='buttonHolder'>
-			<div>
-				<button  id='setButton' onClick='alarmSet()'>Set Alarm</button>
-			</div>
+    		<div id='buttonHolder'>
+    			<div>
+    				<button  id='setButton' onClick='alarmSet()'>Set Alarm</button>
+    			</div>
 
-			<div>
-				<button  id='clearButton' onClick='alarmClear()'>Stop Alarm</button>
-			</div>
-		</div>
-
-
+    			<div>
+    				<button  id='clearButton' onClick='alarmClear()'>Stop Alarm</button>
+    			</div>
+    		</div>
 
 
-
-<!-- task display block -->
-
-
-  <div class="taskDisplay" id="NewTask">
-    <table>
-      <thead>
-        <tr>
-          <th style= "margin: 22px 2px; padding: 30px 50px;">Title</th>
-          <th style= "margin: 22px 2px; padding: 30px 50px;">Description</th>
-          <th style= "margin: 22px 2px; padding: 30px 50px;">Time</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-
-      <tbody id="task-list">
-        <% @tasks.each do |task| %>
+    <!-- task display block -->
+    <div class="taskDisplay" id="NewTask" style= "overflow: scroll;height:  200px;">
+      <table>
+        <thead>
           <tr>
-            <td><%= task.title %></td>
-            <td><%= task.description %></td>
-            <td><%= task.time %> min.</td>
-            <!-- <td><%= link_to 'Show', task %></td>
-            <td><%= '|' %></td>
-            <td><%= link_to 'Edit', edit_task_path(task) %></td> -->
-            <td><%= '|' %></td>
-            <td class="remove-task-btn"><%= link_to 'Delete', task, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
-            <td><%= '|' %></td>
+            <th style= "margin: 22px 2px; padding: 30px 50px;">Title</th>
+            <th style= "margin: 22px 2px; padding: 30px 50px;">Description</th>
+            <th style= "margin: 22px 2px; padding: 30px 50px;">Time</th>
+            <th colspan="3"></th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <br><br>
+        </thead>
 
+        <tbody id="task-list">
+          <% @tasks.each do |task| %>
+            <tr>
+              <td><%= task.title %></td>
+              <td><%= task.description %></td>
+              <td><%= task.time %> min.</td>
+              <!-- <td><%= link_to 'Show', task %></td>
+              <td><%= '|' %></td>
+              <td><%= link_to 'Edit', edit_task_path(task) %></td> -->
+              <td><%= '|' %></td>
+              <td class="remove-task-btn"><%= link_to 'Delete', task, method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= '|' %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <br><br>
+    </div>
 
-<!-- new task -->
-
+    <!-- new task -->
     <div class="newT">
-      <%= form_with(model: @task, remote: true) do |form| %>
+          <%= form_with(model: @task, remote: true) do |form| %>
 
 
-        <div class="field">
-          <%= form.label :title %>
-          <%= form.text_field :title %>
-        </div>
+            <div class="field" style= "display: inline-block;position:  relative;left:  101%;">
+              <%= form.label :title %>
+              <%= form.text_field :title %>
+            </div>
 
-        <div class="field">
-          <%= form.label :description %>
-          <%= form.text_area :description %>
-        </div>
+            <div class="field" style= "display: inline-block;position:  relative;left:  101%;">
+              <%= form.label :description %>
+              <%= form.text_area :description %>
+            </div>
 
-        <div class="field">
-          <%= form.label :time %>
-          <%= form.number_field :time %>
-          <p><em>(in minutes)</em></p>
-        </div>
-      <br>
-        <div class="actions">
-          <%= form.submit %>
-        </div>
-      <% end %>
-    </div>
-
-  </div>
-
-  <br>
-
-<!-- google api -->
-  <div id="travel">
-    <form id="distance_form">
-      <div class="form-group">
-
-        <label style= "display:block">Origin: </label>
-        <br>
-        <input class="form-control" id="from_places" style= "display:block; outline: none;background:rgba(250, 250, 250, 0.4);border: none;height: 40px;border-radius: 4px;padding: 1em 2em;display: block;text-align: center;position: relative;left: 75px; left: 260px; width: 262px;" placeholder="Enter a location" />
-
-        <input id="origin" name="origin" required="" type="hidden" />
-      </div>
-
-      <br>
-      <div class="form-group">
-
-        <label style= "display:block;">Destination: </label>
-        <br>
-        <input class="form-control" id="to_places" style= "display:block; outline: none;background:rgba(250, 250, 250, 0.4);border: none;height: 40px;border-radius: 4px;padding: 1em 2em;display: block;text-align: center;position: relative;left: 75px; left: 260px; width: 262px;" placeholder="Enter a location" />
-
-        <input id="destination" name="destination" required="" type="hidden" />
-      </div>
-
-      <br><br>
-
-      <input class="btn btn-primary" type="submit" value="Calculate" /></form>
-      <br><br>
-      <div id="result">
-          <ul class="list-group">
-            <li class="list-group-item d-flex justify-content-between align-items-center">Distance In Mile :</li>
-            <span id="in_mile" class="badge badge-primary badge-pill"></span>
-            <br><br>
-
-            <li class="list-group-item d-flex justify-content-between align-items-center">IN TEXT:</li>
-            <span id="duration_text" class="badge badge-primary badge-pill"></span>
-            <br><br>
-
-            <!-- <li class="list-group-item d-flex justify-content-between align-items-center">IN MINUTES:</li>
-            <span id="duration_value" class="badge badge-primary badge-pill"></span>
-            <br><br> -->
-
-            <li class="list-group-item d-flex justify-content-between align-items-center">FROM:</li>
-             <span id="from" class="badge badge-primary badge-pill"></span>
-             <br><br>
-
-            <li class="list-group-item d-flex justify-content-between align-items-center">TO:</li>
-            <span id="to" class="badge badge-primary badge-pill"></span>
+            <div class="field" style= "display: inline-block;position:  relative;top: 38px;left: 107%;">
+              <%= form.label :time %>
+              <%= form.number_field :time %>
+              <p><em>(in minutes)</em></p>
+            </div>
+          <br>
+            <div class="actions" style= "top: 30px; position:  relative;left:  143%;">
+              <%= form.submit %>
+            </div>
+          <% end %>
             <br>
-          </ul>
-      </div>
-  </div>
+        </div>
 
 
+    <!-- google travel api -->
+    <div id="travel">
+      <form id="distance_form">
+        <div class="form-group">
 
-<div class="clocks">
-      <div id="ticktock"></div>
+          <label style= "display:block">Origin: </label>
+          <br>
+          <input class="form-control" id="from_places" style= "display:block; outline: none;background:rgba(250, 250, 250, 0.4);border: none;height: 40px;border-radius: 4px;padding: 1em 2em;display: block;text-align: center;position: relative;left: 75px; left: 260px; width: 262px;" placeholder="Enter a location" />
+
+          <input id="origin" name="origin" required="" type="hidden" />
+        </div>
+
         <br>
-      <div class="countDown">
-        <div>You have <span id="timer"></span> minutes left</div>
-      </div>
+        <div class="form-group">
 
-      <p style= "position:  relative;top: -867px;left: 46%;">Total Time Needed: <%= Task.sum(:time) %> minutes</p>
+          <label style= "display:block;">Destination: </label>
+          <br>
+          <input class="form-control" id="to_places" style= "display:block; outline: none;background:rgba(250, 250, 250, 0.4);border: none;height: 40px;border-radius: 4px;padding: 1em 2em;display: block;text-align: center;position: relative;left: 75px; left: 260px; width: 262px;" placeholder="Enter a location" />
 
-		</div>
+          <input id="destination" name="destination" required="" type="hidden" />
+        </div>
 
+        <br><br>
+
+        <input class="btn btn-primary" type="submit" value="Calculate" /></form>
+        <br><br>
+        <div id="result">
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center">Distance In Mile :</li>
+              <span id="in_mile" class="badge badge-primary badge-pill"></span>
+              <br><br>
+
+              <li class="list-group-item d-flex justify-content-between align-items-center">TIME:</li>
+              <span id="duration_text" class="badge badge-primary badge-pill"></span>
+              <br><br>
+
+              <!-- <li class="list-group-item d-flex justify-content-between align-items-center">IN MINUTES:</li>
+              <span id="duration_value" class="badge badge-primary badge-pill"></span>
+              <br><br> -->
+
+              <li class="list-group-item d-flex justify-content-between align-items-center">FROM:</li>
+               <span id="from" class="badge badge-primary badge-pill"></span>
+               <br><br>
+
+              <li class="list-group-item d-flex justify-content-between align-items-center">TO:</li>
+              <span id="to" class="badge badge-primary badge-pill"></span>
+              <br>
+            </ul>
         </div>
     </div>
 
-  </div>
-</div>
+
+    <!-- all my clocks: current time, countdown timer, added task amount time -->
+    <div class="clocks">
+          <div id="ticktock"></div>
+            <br>
+          <div class="countDown">
+            <div>You have <span id="timer"></span> minutes left</div>
+          </div>
+
+          <p style= "position:  relative;top: -867px;left: 46%;">Total Time Needed: <%= Task.sum(:time) %> minutes</p>
+
+    		</div>
+
+            </div>
+        </div>
+
+      </div>
+    </div>
 
 
-<!-- weather // tryenlight.github.io/demo/weather-project/ -->
-<div class="weather">
-  <h1><div id="temp"></div><div id="minutely"></div></h1>
-  <h2><div id="location"></div></h2>
-  <h2><div id="windSpeed"></div></h2>
+    <!-- weather // tryenlight.github.io/demo/weather-project/ -->
+    <div class="weather">
+      <h1><div id="temp"></div><div id="minutely"></div></h1>
+      <h2><div id="location"></div></h2>
+      <h2><div id="windSpeed"></div></h2>
 
-</div>
-
-
-
-<!-- embed youtube playlist -->
-<iframe id="player" width="854" height="480" src="https://www.youtube.com/embed/IcrbM1l_BoI?list=RDQMSvh1AbADqQE&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
 
 
+    <!-- embed youtube playlist -->
+    <!-- <iframe id="player" width="854" height="480" src="https://www.youtube.com/embed/IcrbM1l_BoI?list=RDQMSvh1AbADqQE&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
 
-<!-- daily quotes -->
-<div class="quotes">
-  <div id="container">
-    <h2>Get Your Daily Quote</h2>
-      <div id="quoteContainer">
-        <p></p>
-        <p id="quoteGenius"></p>
-      </div><!--end quoteContainer-->
+    <a id="play-video" href="#" onclick="alarmClear()">Play Video</a>
 
-      <div id="buttonContainer">
-        <a href="#" id="quoteButton">Quote Me</a>
-    </div><!--end buttonContainer-->
-  </div>
-</div>
+    <iframe id="video" width="420" height="315" src="//www.youtube.com/embed/IcrbM1l_BoI?rel=0" frameborder="0" allowfullscreen></iframe>
 
 
+    <!-- daily quotes -->
+    <div class="quotes">
+      <div id="container">
+        <h2>Get Your Daily Quote</h2>
+          <div id="quoteContainer">
+            <p></p>
+            <p id="quoteGenius"></p>
+          </div><!--end quoteContainer-->
 
-
+          <div id="buttonContainer">
+            <a href="#" id="quoteButton">Quote Me</a>
+        </div><!--end buttonContainer-->
+      </div>
+    </div>
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+<!-- this is where js come in    this is where js come in    this is where js come in    this is where js come in  -->
 
 
 
@@ -416,230 +396,231 @@ function alarmClear() {
 	document.getElementById('alarmsecs').disabled = false;
 	document.getElementById('ampm').disabled = false;
 	sound.pause();
+
+  $("#video")[0].src += "&autoplay=1";
+  ev.preventDefault();
+
 }
 
 
 
 
-// quotes
-$(document).ready(function(){
-		var quoteSource=[
-		{
-			quote: "Start by doing what's necessary; then do what's possible; and suddenly you are doing the impossible.",
-			name:"Francis of Assisi"
-	    },
-	    {
-	    	quote:"Believe you can and you're halfway there.",
-	    	name:"Theodore Roosevelt"
-	    },
-	    {
-	    	quote:"It does not matter how slowly you go as long as you do not stop.",
-	    	name:"Confucius"
-	    },
-	    {
-	    	quote:"Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.",
-	    	name:"Thomas A. Edison"
-	    },
-	    {
-	    	quote:"The will to win, the desire to succeed, the urge to reach your full potential... these are the keys that will unlock the door to personal excellence.",
-	    	name:"Confucius"
-	    },
-	    {
-	    	quote:"Don't watch the clock; do what it does. Keep going.",
-	    	name:"Sam Levenson"
-	    },
-	    {
-	    	quote:"A creative man is motivated by the desire to achieve, not by the desire to beat others.",
-	    	name:"Ayn Rand"
-	    },
-	    {
-	    	quote:"A creative man is motivated by the desire to achieve, not by the desire to beat others.",
-	    	name:"Ayn Rand"
-	    },
-	    {
-	    	quote:"Expect problems and eat them for breakfast.",
-	    	name:"Alfred A. Montapert"
-	    },
-	    {
-	    	quote:"Start where you are. Use what you have. Do what you can.",
-	    	name:"Arthur Ashe"
-	    },
-	    {
-	    	quote:"Ever tried. Ever failed. No matter. Try Again. Fail again. Fail better.",
-	    	name:"Samuel Beckett"
-	    },
-	    {
-	    	quote:"Be yourself; everyone else is already taken.",
-	    	name:"Oscar Wilde"
-	    },
-	    {
-	    	quote:"Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
-	    	name:"Albert Einstein"
-	    },
-	    {
-	    	quote:"Always remember that you are absolutely unique. Just like everyone else.",
-	    	name:"Margaret Mead"
-	    },
-	    {
-	    	quote:"Do not take life too seriously. You will never get out of it alive.",
-	    	name:"Elbert Hubbard"
-	    },
-	    {
-	    	quote:"People who think they know everything are a great annoyance to those of us who do.",
-	    	name:"Isaac Asimov"
-	    },
-	    {
-	    	quote:"Procrastination is the art of keeping up with yesterday.",
-	    	name:"Don Marquis"
-	    },
-	    {
-	    	quote:"Get your facts first, then you can distort them as you please.",
-	    	name:"Mark Twain"
-	    },
-	    {
-	    	quote:"A day without sunshine is like, you know, night.",
-	    	name:"Steve Martin"
-	    },
-	    {
-	    	quote:"My grandmother started walking five miles a day when she was sixty. She's ninety-seven now, and we don't know where the hell she is.",
-	    	name:"Ellen DeGeneres"
-	    },
-      {
-        quote:"Life is 10% what happens to me and 90% of how I react to it.",
-        name:"Charles Swindoll"
-      },
-      {
-        quote:"I can’t change the direction of the wind, but I can adjust my sails to always reach my destination.",
-        name:"Jimmy Dean"
-      },
-      {
-        quote:"Do or do not. There is no try.",
-        name:"Yoda"
-      },
-	    {
-	    	quote:"Don't sweat the petty things and don't pet the sweaty things.",
-	    	name:"George Carlin"
-	    },
-      {
-       quote:"I’ve learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel.",
-       name:"Maya Angelou"
-      },
-	    {
-	    	quote:"Always do whatever's next.",
-	    	name:"George Carlin"
-	    },
-	    {
-	    	quote:"Nothing is impossible, the word itself says “I'm possible",
-	    	name:"Audrey Hepburn"
-	    },
-	    {
-	    	quote:"Hapiness is not something ready made. It comes from your own actions.",
-	    	name:"Dalai Lama"
-	    }
+      // quotes
+      $(document).ready(function(){
+      		var quoteSource=[
+      		{
+      			quote: "Start by doing what's necessary; then do what's possible; and suddenly you are doing the impossible.",
+      			name:"Francis of Assisi"
+      	    },
+      	    {
+      	    	quote:"Believe you can and you're halfway there.",
+      	    	name:"Theodore Roosevelt"
+      	    },
+      	    {
+      	    	quote:"It does not matter how slowly you go as long as you do not stop.",
+      	    	name:"Confucius"
+      	    },
+      	    {
+      	    	quote:"Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.",
+      	    	name:"Thomas A. Edison"
+      	    },
+      	    {
+      	    	quote:"The will to win, the desire to succeed, the urge to reach your full potential... these are the keys that will unlock the door to personal excellence.",
+      	    	name:"Confucius"
+      	    },
+      	    {
+      	    	quote:"Don't watch the clock; do what it does. Keep going.",
+      	    	name:"Sam Levenson"
+      	    },
+      	    {
+      	    	quote:"A creative man is motivated by the desire to achieve, not by the desire to beat others.",
+      	    	name:"Ayn Rand"
+      	    },
+      	    {
+      	    	quote:"A creative man is motivated by the desire to achieve, not by the desire to beat others.",
+      	    	name:"Ayn Rand"
+      	    },
+      	    {
+      	    	quote:"Expect problems and eat them for breakfast.",
+      	    	name:"Alfred A. Montapert"
+      	    },
+      	    {
+      	    	quote:"Start where you are. Use what you have. Do what you can.",
+      	    	name:"Arthur Ashe"
+      	    },
+      	    {
+      	    	quote:"Ever tried. Ever failed. No matter. Try Again. Fail again. Fail better.",
+      	    	name:"Samuel Beckett"
+      	    },
+      	    {
+      	    	quote:"Be yourself; everyone else is already taken.",
+      	    	name:"Oscar Wilde"
+      	    },
+      	    {
+      	    	quote:"Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
+      	    	name:"Albert Einstein"
+      	    },
+      	    {
+      	    	quote:"Always remember that you are absolutely unique. Just like everyone else.",
+      	    	name:"Margaret Mead"
+      	    },
+      	    {
+      	    	quote:"Do not take life too seriously. You will never get out of it alive.",
+      	    	name:"Elbert Hubbard"
+      	    },
+      	    {
+      	    	quote:"People who think they know everything are a great annoyance to those of us who do.",
+      	    	name:"Isaac Asimov"
+      	    },
+      	    {
+      	    	quote:"Procrastination is the art of keeping up with yesterday.",
+      	    	name:"Don Marquis"
+      	    },
+      	    {
+      	    	quote:"Get your facts first, then you can distort them as you please.",
+      	    	name:"Mark Twain"
+      	    },
+      	    {
+      	    	quote:"A day without sunshine is like, you know, night.",
+      	    	name:"Steve Martin"
+      	    },
+      	    {
+      	    	quote:"My grandmother started walking five miles a day when she was sixty. She's ninety-seven now, and we don't know where the hell she is.",
+      	    	name:"Ellen DeGeneres"
+      	    },
+            {
+              quote:"Life is 10% what happens to me and 90% of how I react to it.",
+              name:"Charles Swindoll"
+            },
+            {
+              quote:"I can’t change the direction of the wind, but I can adjust my sails to always reach my destination.",
+              name:"Jimmy Dean"
+            },
+            {
+              quote:"Do or do not. There is no try.",
+              name:"Yoda"
+            },
+      	    {
+      	    	quote:"Don't sweat the petty things and don't pet the sweaty things.",
+      	    	name:"George Carlin"
+      	    },
+            {
+             quote:"I’ve learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel.",
+             name:"Maya Angelou"
+            },
+      	    {
+      	    	quote:"Always do whatever's next.",
+      	    	name:"George Carlin"
+      	    },
+      	    {
+      	    	quote:"Nothing is impossible, the word itself says “I'm possible",
+      	    	name:"Audrey Hepburn"
+      	    },
+      	    {
+      	    	quote:"Hapiness is not something ready made. It comes from your own actions.",
+      	    	name:"Dalai Lama"
+      	    }
 
-	];
-
-
-		$('#quoteButton').click(function(evt){
-			//define the containers of the info we target
-			var quote = $('#quoteContainer p').text();
-			var quoteGenius = $('#quoteGenius').text();
-			//prevent browser's default action
-			evt.preventDefault();
-			//getting a new random number to attach to a quote and setting a limit
-			var sourceLength = quoteSource.length;
-			var randomNumber= Math.floor(Math.random()*sourceLength);
-			//set a new quote
-			for(i=0;i<=sourceLength;i+=1){
-			var newQuoteText = quoteSource[randomNumber].quote;
-			var newQuoteGenius = quoteSource[randomNumber].name;
-			//console.log(newQuoteText,newQuoteGenius);
-      var timeAnimation = 500;
-      var quoteContainer = $('#quoteContainer');
-      //fade out animation with callback
-      quoteContainer.fadeOut(timeAnimation, function(){
-        quoteContainer.html('');
-				quoteContainer.append('<p>'+newQuoteText+'</p>'+'<p id="quoteGenius">'+'-								'+newQuoteGenius+'</p>');
-
-        //fadein animation.
-        quoteContainer.fadeIn(timeAnimation);
-      });
-
-			break;
-		};//end for loop
-
-	});//end quoteButton function
-  $.getJSON("https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=", function(a) {
-    // $("body").append(a[0].content + "<p>&mdash; " + a[0].title + "</p>")
-  });
-});//end document ready
+      	];
 
 
+      		$('#quoteButton').click(function(evt){
+      			//define the containers of the info we target
+      			var quote = $('#quoteContainer p').text();
+      			var quoteGenius = $('#quoteGenius').text();
+      			//prevent browser's default action
+      			evt.preventDefault();
+      			//getting a new random number to attach to a quote and setting a limit
+      			var sourceLength = quoteSource.length;
+      			var randomNumber= Math.floor(Math.random()*sourceLength);
+      			//set a new quote
+      			for(i=0;i<=sourceLength;i+=1){
+      			var newQuoteText = quoteSource[randomNumber].quote;
+      			var newQuoteGenius = quoteSource[randomNumber].name;
+      			//console.log(newQuoteText,newQuoteGenius);
+            var timeAnimation = 500;
+            var quoteContainer = $('#quoteContainer');
+            //fade out animation with callback
+            quoteContainer.fadeOut(timeAnimation, function(){
+              quoteContainer.html('');
+      				quoteContainer.append('<p>'+newQuoteText+'</p>'+'<p id="quoteGenius">'+'-								'+newQuoteGenius+'</p>');
+
+              //fadein animation.
+              quoteContainer.fadeIn(timeAnimation);
+            });
+
+      			break;
+      		};//end for loop
+
+      	});//end quoteButton function
+        $.getJSON("https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=", function(a) {
+          // $("body").append(a[0].content + "<p>&mdash; " + a[0].title + "</p>")
+        });
+      });//end document ready
 
 
 
-// get current weather
-function weather() {
+      // get current weather
+      function weather() {
 
-  var location = document.getElementById("location");
-  var apiKey = '6d3121a0caf68b6895851267a48e16c6'; // MY API KEY
-  var url = 'https://api.forecast.io/forecast/';
+        var location = document.getElementById("location");
+        var windSpeed = document.getElementById("windSpeed");
+        var apiKey = '6d3121a0caf68b6895851267a48e16c6'; // MY API KEY
+        var url = 'https://api.forecast.io/forecast/';
 
-  navigator.geolocation.getCurrentPosition(success, error);
+        navigator.geolocation.getCurrentPosition(success, error);
 
-  function success(position) {
-    latitude = position.coords.latitude;
-    longitude = position.coords.longitude;
-    windSpeed = position.coords.windSpeed;
+        function success(position) {
+          latitude = position.coords.latitude;
+          longitude = position.coords.longitude;
+          windSpeed = position.coords.windSpeed;
 
-    location.innerHTML = 'Latitude is ' + latitude + '° <br> Longitude is ' + longitude + '°' + 'Windspeed: ' ;
+          location.innerHTML = 'Latitude is ' + latitude + '° <br> Longitude is ' + longitude + '°' + '<br> Windspeed: ' + windSpeed;
 
-     $.getJSON(url + apiKey + "/" + latitude + "," + longitude + "?callback=?", function(data) {
-      $('#temp').html(data.currently.temperature + '° F');
-      $('#minutely').html(data.hourly.summary);
-      $('#windSpeed').html(data.currently.windSpeed + 'mph');
-    });
-  }
+           $.getJSON(url + apiKey + "/" + latitude + "," + longitude + "?callback=?", function(data) {
+            $('#temp').html(data.currently.temperature + '° F');
+            $('#minutely').html(data.hourly.summary);
+            $('#windSpeed').html(data.currently.windSpeed + ' mph');
+          });
+        }
 
-  function error() {
-    location.innerHTML = "Unable to retrieve your location";
-  }
+        function error() {
+          location.innerHTML = "Unable to retrieve your location";
+        }
 
-  location.innerHTML = "Locating...";
-}
-
-weather();
-
-
-
-
-
-// gets current time
-    function checkTime(i) {
-      if (i < 10) {
-        i = "0" + i;
-      }
-      return i;
+        location.innerHTML = "Locating...";
       }
 
-      function startTime() {
-      var today = new Date();
-      var h = today.getHours();
-      var m = today.getMinutes();
-      var s = today.getSeconds();
-      // add a zero in front of numbers<10
-      m = checkTime(m);
-      s = checkTime(s);
-      document.getElementById('ticktock').innerHTML = h + ":" + m + ":" + s;
-      t = setTimeout(function() {
-        startTime()
-      }, 500);
-      }
-      startTime();
+      weather();
 
 
 
-// countdown timer
+      //gets current time
+      function checkTime(i) {
+        if (i < 10) {
+          i = "0" + i;
+        }
+        return i;
+        }
+
+        function startTime() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        // add a zero in front of numbers<10
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('ticktock').innerHTML = h + ":" + m + ":" + s;
+        t = setTimeout(function() {
+          startTime()
+        }, 500);
+        }
+        startTime();
+
+
+
+      //countdown timer
       var cD = <%= Task.sum(:time) %>
       // var t = duration_value;
       var pageLoadTime = new Date();
@@ -852,6 +833,10 @@ botui.message.bot({
 });
 
 
+
+
+
+
 // speech ai
 
 if (annyang) {
@@ -871,7 +856,7 @@ if (annyang) {
 if (annyang) {
   // Let's define a command.
   var commands = {
-    'what time is it': function() { var msg = new SpeechSynthesisUtterance('Its blank oclock');
+    'what time is it': function() { var msg = new SpeechSynthesisUtterance('It is blank oclock');
     window.speechSynthesis.speak(msg); }
   };
 
