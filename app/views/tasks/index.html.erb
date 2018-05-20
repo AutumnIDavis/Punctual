@@ -183,7 +183,7 @@
             <div>You have <span id="timer"></span> minutes left</div>
           </div>
 
-          <p style= "position:  relative;top: -867px;left: 46%;">Total Time Needed: <%= Task.sum(:time) %> minutes</p>
+          <!-- <p style= "position:  relative;top: -867px;left: 46%;" id="departTime">Destination Arrival: <%= Task.sum(:time) %> minutes</p> -->
 
     		</div>
 
@@ -239,170 +239,237 @@
 
 <script>
 
-// alarm clock
-var sound = new Audio("https://www.freespecialeffects.co.uk/soundfx/music/fanfare3.wav");
-		sound.loop = true;
-
-// var h2 = document.getElementById('clock');
-
-// display current time by the second
-var currentTime = setInterval(function(){
-	var date = new Date();
-
-	var hours = (12 - (date.getHours()));
-	// var hours = date.getHours();
-
-	var minutes = date.getMinutes();
-
-	var seconds = date.getSeconds();
-
-	var ampm = (date.getHours()) < 12 ? 'AM' : 'PM';
 
 
-	//convert military time to standard time
+// var departTime = Math.ceil(cD + newTimeLeft) + ":" + "00";
+// var cD = <%= Task.sum(:time) %>
+// var today = new Today();
+// document.getElementById('departTime').innerText = cD + today.getHours()%12
+// // document.getElementById('departTime').innerText = newDepartTime + ":" + "00";
+// // console.log(departTime.innerHTML)
+//
+//
 
-	if (hours < 0) {
-		hours = hours * -1;
-	} else if (hours == 00) {
-		hours = 12;
-	} else {
-		hours = hours;
-	}
-
-
-	// h2.textContent = addZero(hours) + ":" + addZero(minutes) + ":" + addZero(seconds) + "" + ampm;
-
-},1000);
-
-
-/*functions to get hour, min, secs,
-  am or pm, add zero, set alarm time and sound, clear alarm
-*/
-
-function addZero(time) {
-
-		return (time < 10) ? "0" + time : time;
-
-}
-
-function hoursMenu(){
-
-	var select = document.getElementById('alarmhrs');
-	var hrs = 12
-
-	for (i=1; i <= hrs; i++) {
-		select.options[select.options.length] = new Option( i < 10 ? "0" + i : i, i);
-
-	}
-}
-hoursMenu();
-
-function minMenu(){
-
-	var select = document.getElementById('alarmmins');
-	var min = 59;
-
-	for (i=0; i <= min; i++) {
-		select.options[select.options.length] = new Option(i < 10 ? "0" + i : i, i);
-	}
-}
-minMenu();
-
-function secMenu(){
-
-	var select = document.getElementById('alarmsecs');
-	var sec = 59;
-
-	for (i=0; i <= sec; i++) {
-		select.options[select.options.length] = new Option(i < 10 ? "0" + i : i, i);
-	}
-}
-secMenu();
+// function departTime() {
+// var today = new Date();
+// //puts hours in standard time instead of military time
+// var h = today.getHours()%12;
+// var m = today.getMinutes();
+// var s = today.getSeconds();
+//
+// var newH = today.getHours()%12+ cD;
+// var newM = today.getMinutes()+ cD;
+// var newS = today.getSeconds();
+//
+// m = checkTime(m);
+// s = checkTime(s);
+// document.getElementById('departTime').innerText = (newH + ":" + newM + ":" + newS)
+// t = setTimeout(function() {
+//   departTime()
+// }, 500);
+// }
+//
+// departTime();
 
 
-function alarmSet() {
-
-	var hr = document.getElementById('alarmhrs');
-
-	var min = document.getElementById('alarmmins');
-
-	var sec = document.getElementById('alarmsecs');
-
-	var ap = document.getElementById('ampm');
 
 
-    var selectedHour = hr.options[hr.selectedIndex].value;
-    var selectedMin = min.options[min.selectedIndex].value;
-    var selectedSec = sec.options[sec.selectedIndex].value;
-    var selectedAP = ap.options[ap.selectedIndex].value;
-
-    var alarmTime = addZero(selectedHour) + ":" + addZero(selectedMin) + ":" + addZero(selectedSec) + selectedAP;
-    console.log('alarmTime:' + alarmTime);
-
-  document.getElementById('alarmhrs').disabled = true;
-	document.getElementById('alarmmins').disabled = true;
-	document.getElementById('alarmsecs').disabled = true;
-	document.getElementById('ampm').disabled = true;
 
 
-//when alarmtime is equal to currenttime then play a sound
-	var h2 = document.getElementById('clock');
+      // alarm clock
+      var sound = new Audio("https://www.freespecialeffects.co.uk/soundfx/music/fanfare3.wav");
+      		sound.loop = true;
 
-/*function to calcutate the current time
-then compare it to the alarmtime and play a sound when they are equal
-*/
+      // var h2 = document.getElementById('clock');
 
-setInterval(function(){
+      // display current time by the second
+      var currentTime = setInterval(function(){
+      	var date = new Date();
 
-	var date = new Date();
+      	var hours = (12 - (date.getHours()));
 
-	var hours = (12 - (date.getHours()));
-	// var hours = date.getHours();
+      	// var hours = date.getHours();
 
-	var minutes = date.getMinutes();
+      	var minutes = date.getMinutes();
 
-	var seconds = date.getSeconds();
+      	var seconds = date.getSeconds();
 
-	var ampm = (date.getHours()) < 12 ? 'AM' : 'PM';
-
-
-	//convert military time to standard time
-
-	if (hours < 0) {
-		hours = hours * -1;
-	} else if (hours == 00) {
-		hours = 12;
-	} else {
-		hours = hours;
-	}
-
-	var currentTime = addZero(hours) + ":" + addZero(minutes) + ":" + addZero(seconds) + "" + ampm;
+      	var ampm = (date.getHours()) < 12 ? 'AM' : 'PM';
 
 
-	if (alarmTime == currentTime) {
-		sound.play();
-		}
+      	//convert military time to standard time
 
-},1000);
+      	if (hours < 0) {
+      		hours = hours * -1;
+      	} else if (hours == 00) {
+      		hours = 12;
+      	} else {
+      		hours = hours;
+      	}
+      	// h2.textContent = addZero(hours) + ":" + addZero(minutes) + ":" + addZero(seconds) + "" + ampm;
+      },1000);
 
 
-	console.log('currentTime:' + currentTime);
+      /*functions to get hour, min, secs,
+        am or pm, add zero, set alarm time and sound, clear alarm
+      */
 
-}
+      function addZero(time) {
+
+      		return (time < 10) ? "0" + time : time;
+
+      }
+
+      function hoursMenu(){
+
+      	var select = document.getElementById('alarmhrs');
+      	var hrs = 12
+
+      	for (i=1; i <= hrs; i++) {
+      		select.options[select.options.length] = new Option( i < 10 ? "0" + i : i, i);
+
+      	}
+      }
+      hoursMenu();
+
+      function minMenu(){
+
+      	var select = document.getElementById('alarmmins');
+      	var min = 59;
+
+      	for (i=0; i <= min; i++) {
+      		select.options[select.options.length] = new Option(i < 10 ? "0" + i : i, i);
+      	}
+      }
+      minMenu();
+
+      function secMenu(){
+
+      	var select = document.getElementById('alarmsecs');
+      	var sec = 59;
+
+      	for (i=0; i <= sec; i++) {
+      		select.options[select.options.length] = new Option(i < 10 ? "0" + i : i, i);
+      	}
+      }
+      secMenu();
 
 
-function alarmClear() {
+      function alarmSet() {
 
-	document.getElementById('alarmhrs').disabled = false;
-	document.getElementById('alarmmins').disabled = false;
-	document.getElementById('alarmsecs').disabled = false;
-	document.getElementById('ampm').disabled = false;
-	sound.pause();
+      	var hr = document.getElementById('alarmhrs');
 
-  $("#video")[0].src += "&autoplay=1";
-  ev.preventDefault();
+      	var min = document.getElementById('alarmmins');
 
-}
+      	var sec = document.getElementById('alarmsecs');
+
+      	var ap = document.getElementById('ampm');
+
+
+          var selectedHour = hr.options[hr.selectedIndex].value;
+          var selectedMin = min.options[min.selectedIndex].value;
+          var selectedSec = sec.options[sec.selectedIndex].value;
+          var selectedAP = ap.options[ap.selectedIndex].value;
+
+          var alarmTime = addZero(selectedHour) + ":" + addZero(selectedMin) + ":" + addZero(selectedSec) + selectedAP;
+          console.log('alarmTime:' + alarmTime);
+
+        document.getElementById('alarmhrs').disabled = true;
+      	document.getElementById('alarmmins').disabled = true;
+      	document.getElementById('alarmsecs').disabled = true;
+      	document.getElementById('ampm').disabled = true;
+
+
+      //when alarmtime is equal to currenttime then play a sound
+      	var h2 = document.getElementById('clock');
+
+      /*function to calcutate the current time
+      then compare it to the alarmtime and play a sound when they are equal
+      */
+
+      setInterval(function(){
+
+      	var date = new Date();
+
+      	var hours = (12 - (date.getHours()));
+      	// var hours = date.getHours();
+
+      	var minutes = date.getMinutes();
+
+      	var seconds = date.getSeconds();
+
+      	var ampm = (date.getHours()) < 12 ? 'AM' : 'PM';
+
+
+      	//convert military time to standard time
+
+      	if (hours < 0) {
+      		hours = hours * -1;
+      	} else if (hours == 00) {
+      		hours = 12;
+      	} else {
+      		hours = hours;
+      	}
+
+      	var currentTime = addZero(hours) + ":" + addZero(minutes) + ":" + addZero(seconds) + "" + ampm;
+
+
+      	if (alarmTime == currentTime) {
+      		sound.play();
+
+          //countdown timer
+          var cD = <%= Task.sum(:time) %>
+          var pageLoadTime = new Date();
+
+            document.getElementById('timer').innerHTML =
+            cD + ":" + 00;
+          startTimer();
+
+          function startTimer() {
+            var presentTime = document.getElementById('timer').innerHTML;
+            var timeArray = presentTime.split(/[:]+/);
+            var m = timeArray[0];
+            var s = checkSecond((timeArray[1] - 1));
+            if(s==59){m=m-1}
+            // if(m<0){alert('timer completed')}
+
+            document.getElementById('timer').innerHTML =
+              m + ":" + s;
+            setTimeout(startTimer, 1000);
+          }
+
+          function checkSecond(sec) {
+            if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
+            if (sec < 0) {sec = "59"};
+            return sec;
+          }
+
+
+
+      		}
+
+      },1000);
+
+
+      	console.log('currentTime:' + currentTime);
+
+      }
+
+
+      function alarmClear() {
+
+      	document.getElementById('alarmhrs').disabled = false;
+      	document.getElementById('alarmmins').disabled = false;
+      	document.getElementById('alarmsecs').disabled = false;
+      	document.getElementById('ampm').disabled = false;
+      	sound.pause();
+
+        $("#video")[0].src += "&autoplay=1";
+        ev.preventDefault();
+
+
+
+      }
 
 
 
@@ -577,12 +644,12 @@ function alarmClear() {
           longitude = position.coords.longitude;
           windSpeed = position.coords.windSpeed;
 
-          location.innerHTML = 'Latitude is ' + latitude + '° <br> Longitude is ' + longitude + '°' + '<br> Windspeed: ' + windSpeed;
+          location.innerHTML = 'Latitude is ' + latitude + '° <br> Longitude is ' + longitude + '°';
 
            $.getJSON(url + apiKey + "/" + latitude + "," + longitude + "?callback=?", function(data) {
             $('#temp').html(data.currently.temperature + '° F');
             $('#minutely').html(data.hourly.summary);
-            $('#windSpeed').html(data.currently.windSpeed + ' mph');
+            $('#windSpeed').html('Windspeed: ' + data.currently.windSpeed + ' mph');
           });
         }
 
@@ -600,6 +667,7 @@ function alarmClear() {
       //gets current time
       function checkTime(i) {
         if (i < 10) {
+          // add a zero in front of numbers<10
           i = "0" + i;
         }
         return i;
@@ -607,10 +675,11 @@ function alarmClear() {
 
         function startTime() {
         var today = new Date();
-        var h = today.getHours();
+        //puts hours in standard time instead of military time
+        var h = today.getHours()%12;
         var m = today.getMinutes();
         var s = today.getSeconds();
-        // add a zero in front of numbers<10
+
         m = checkTime(m);
         s = checkTime(s);
         document.getElementById('ticktock').innerHTML = h + ":" + m + ":" + s;
@@ -622,33 +691,34 @@ function alarmClear() {
 
 
 
-      //countdown timer
+
+
+      // //countdown timer
       var cD = <%= Task.sum(:time) %>
-      // var t = duration_value;
       var pageLoadTime = new Date();
 
-        document.getElementById('timer').innerHTML =
-        cD + ":" + 00;
-      startTimer();
-
-      function startTimer() {
-        var presentTime = document.getElementById('timer').innerHTML;
-        var timeArray = presentTime.split(/[:]+/);
-        var m = timeArray[0];
-        var s = checkSecond((timeArray[1] - 1));
-        if(s==59){m=m-1}
-        // if(m<0){alert('timer completed')}
-
-        document.getElementById('timer').innerHTML =
-          m + ":" + s;
-        setTimeout(startTimer, 1000);
-      }
-
-      function checkSecond(sec) {
-        if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
-        if (sec < 0) {sec = "59"};
-        return sec;
-      }
+        // document.getElementById('timer').innerHTML =
+        // cD + ":" + 00;
+      // startTimer();
+      //
+      // function startTimer() {
+      //   var presentTime = document.getElementById('timer').innerHTML;
+      //   var timeArray = presentTime.split(/[:]+/);
+      //   var m = timeArray[0];
+      //   var s = checkSecond((timeArray[1] - 1));
+      //   if(s==59){m=m-1}
+      //   // if(m<0){alert('timer completed')}
+      //
+      //   document.getElementById('timer').innerHTML =
+      //     m + ":" + s;
+      //   setTimeout(startTimer, 1000);
+      // }
+      //
+      // function checkSecond(sec) {
+      //   if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
+      //   if (sec < 0) {sec = "59"};
+      //   return sec;
+      // }
 
 
 
@@ -674,6 +744,8 @@ $(function() {
         });
 
     });
+
+
     // calculate distance
     function calculateDistance() {
         var origin = $('#origin').val();
@@ -710,6 +782,8 @@ $(function() {
 
                 var newTimeLeft = Math.ceil(cD - (duration.value / 60) - (Date.now() - pageLoadTime.getTime()) / 60000);
                 document.getElementById('timer').innerHTML = newTimeLeft + ":" + "00";
+
+
 
                 $('#in_mile').text(distance_in_mile.toFixed(2));
                 $('#in_kilo').text(distance_in_kilo.toFixed(2));
@@ -1008,5 +1082,6 @@ if (annyang) {
   // Start listening.
   annyang.start();
 }
+
 
 </script>
