@@ -6,12 +6,11 @@ $(document).ready(function() {
 
 // countdown timer
       var cD = <%= Task.sum(:time) %>
-      // var t = duration_value;
       var pageLoadTime = new Date();
 
         document.getElementById('timer').innerHTML =
         cD + ":" + 00;
-      startTimer();
+        startTimer();
 
       function startTimer() {
         var presentTime = document.getElementById('timer').innerHTML;
@@ -25,6 +24,7 @@ $(document).ready(function() {
           m + ":" + s;
         setTimeout(startTimer, 1000);
       }
+
 
       function checkSecond(sec) {
         if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10

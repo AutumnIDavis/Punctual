@@ -234,7 +234,7 @@
 <script>
 
 
-                          // attempt at making a departure time functions below
+  // attempt at making a departure time functions below
 
 // var departTime = Math.ceil(cD + newTimeLeft) + ":" + "00";
 // var cD = <%= Task.sum(:time) %>
@@ -394,7 +394,7 @@
 
       	var date = new Date();
 
-      	var hours = date.getHours();
+      	var hours = (12 - (date.getHours()));
       	// var hours = date.getHours();
 
       	var minutes = date.getMinutes();
