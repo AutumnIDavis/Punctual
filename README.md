@@ -4,7 +4,7 @@ A single page app that keeps your morning scheduled and on time. Includes five a
 
 Things you may want to cover:
 
-* Ruby version: ruby 2.4.1p111
+* Ruby version: ruby 2.4.1
 * Written with Ruby on Rails, CSS, and JavaScript
   # Api's: 
     - Google: Distance Matrix
