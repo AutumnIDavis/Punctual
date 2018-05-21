@@ -9,7 +9,7 @@
     <!-- good morning bot -->
     <div id="roboAI">
           <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-        <main class="bot-wrapper centered">
+        <main class="bot-wrapper centered" >
         <div id="bot">
           <bot-ui></bot-ui>
         </div>
@@ -115,7 +115,7 @@
               <p><em>(in minutes)</em></p>
             </div>
           <br>
-            <div class="actions" style= "top: 30px; position:  relative;left:  143%;">
+            <div class="actions" style= "top: 10px; position:  relative;left:  143%;">
               <%= form.submit %>
             </div>
           <% end %>
@@ -180,19 +180,11 @@
           <div id="ticktock"></div>
             <br>
           <div class="countDown">
-            <div>You have <span id="timer"></span> minutes left</div>
+            <div>You have <span id="timer"></span> minutes before you leave</div>
           </div>
 
           <!-- <p style= "position:  relative;top: -867px;left: 46%;" id="departTime">Destination Arrival: <%= Task.sum(:time) %> minutes</p> -->
-
-    		</div>
-
-            </div>
-        </div>
-
-      </div>
     </div>
-
 
     <!-- weather // tryenlight.github.io/demo/weather-project/ -->
     <div class="weather">
@@ -202,15 +194,11 @@
 
     </div>
 
-
-    <!-- embed youtube playlist -->
-    <!-- <iframe id="player" width="854" height="480" src="https://www.youtube.com/embed/IcrbM1l_BoI?list=RDQMSvh1AbADqQE&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+    <!-- youtube embed playlist -->
 
     <a id="play-video" href="#" onclick="alarmClear()">Play Video</a>
 
-    <iframe id="video" width="420" height="315" src="//www.youtube.com/embed/zMzN9sIFI9g?list=PLhZKQ5svhl7hdcQ-gnEToPNq1eJgTKdGP" frameborder="0" allowfullscreen></iframe>
-
-
+    <iframe id="video" width="420" height="315" src="//www.youtube.com/embed/zMzN9sIFI9g?list=PLhZKQ5svhl7hdcQ-gnEToPNq1eJgTKdGP" frameborder="2" allowfullscreen></iframe>
 
 
     <!-- daily quotes -->
@@ -232,6 +220,12 @@
 
 
 
+
+
+
+
+
+
 <!-- this is where js come in    this is where js come in    this is where js come in    this is where js come in  -->
 
 
@@ -240,6 +234,7 @@
 <script>
 
 
+                          // attempt at making a departure time functions below
 
 // var departTime = Math.ceil(cD + newTimeLeft) + ":" + "00";
 // var cD = <%= Task.sum(:time) %>
@@ -258,7 +253,7 @@
 // var s = today.getSeconds();
 //
 // var newH = today.getHours()%12+ cD;
-// var newM = today.getMinutes()+ cD;
+// var newM = today.getMinutes();
 // var newS = today.getSeconds();
 //
 // m = checkTime(m);
@@ -271,8 +266,16 @@
 //
 // departTime();
 
-
-
+// $(document).ready(function() {
+//     var hours = Math.floor( $('.cD').html() / 60);
+//     var minutes = $('.cD').html() % 60;
+//
+//     document.getElementById('departTime').innerText = (hours + ":" + minutes)
+//
+//     $('.convertedHour').html(hours);
+//     $('.convertedMin').html(minutes);
+//
+// });
 
 
 
@@ -391,7 +394,7 @@
 
       	var date = new Date();
 
-      	var hours = (12 - (date.getHours()));
+      	var hours = date.getHours();
       	// var hours = date.getHours();
 
       	var minutes = date.getMinutes();
@@ -455,7 +458,6 @@
 
       }
 
-
       function alarmClear() {
 
       	document.getElementById('alarmhrs').disabled = false;
@@ -472,616 +474,613 @@
       }
 
 
+    // quotes
+    $(document).ready(function(){
+    		var quoteSource=[
+    		{
+    			quote: "Start by doing what's necessary; then do what's possible; and suddenly you are doing the impossible.",
+    			name:"Francis of Assisi"
+    	    },
+    	    {
+    	    	quote:"Believe you can and you're halfway there.",
+    	    	name:"Theodore Roosevelt"
+    	    },
+    	    {
+    	    	quote:"It does not matter how slowly you go as long as you do not stop.",
+    	    	name:"Confucius"
+    	    },
+    	    {
+    	    	quote:"Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.",
+    	    	name:"Thomas A. Edison"
+    	    },
+    	    {
+    	    	quote:"The will to win, the desire to succeed, the urge to reach your full potential... these are the keys that will unlock the door to personal excellence.",
+    	    	name:"Confucius"
+    	    },
+    	    {
+    	    	quote:"Don't watch the clock; do what it does. Keep going.",
+    	    	name:"Sam Levenson"
+    	    },
+    	    {
+    	    	quote:"A creative man is motivated by the desire to achieve, not by the desire to beat others.",
+    	    	name:"Ayn Rand"
+    	    },
+    	    {
+    	    	quote:"A creative man is motivated by the desire to achieve, not by the desire to beat others.",
+    	    	name:"Ayn Rand"
+    	    },
+    	    {
+    	    	quote:"Expect problems and eat them for breakfast.",
+    	    	name:"Alfred A. Montapert"
+    	    },
+    	    {
+    	    	quote:"Start where you are. Use what you have. Do what you can.",
+    	    	name:"Arthur Ashe"
+    	    },
+    	    {
+    	    	quote:"Ever tried. Ever failed. No matter. Try Again. Fail again. Fail better.",
+    	    	name:"Samuel Beckett"
+    	    },
+    	    {
+    	    	quote:"Be yourself; everyone else is already taken.",
+    	    	name:"Oscar Wilde"
+    	    },
+    	    {
+    	    	quote:"Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
+    	    	name:"Albert Einstein"
+    	    },
+    	    {
+    	    	quote:"Always remember that you are absolutely unique. Just like everyone else.",
+    	    	name:"Margaret Mead"
+    	    },
+    	    {
+    	    	quote:"Do not take life too seriously. You will never get out of it alive.",
+    	    	name:"Elbert Hubbard"
+    	    },
+    	    {
+    	    	quote:"People who think they know everything are a great annoyance to those of us who do.",
+    	    	name:"Isaac Asimov"
+    	    },
+    	    {
+    	    	quote:"Procrastination is the art of keeping up with yesterday.",
+    	    	name:"Don Marquis"
+    	    },
+    	    {
+    	    	quote:"Get your facts first, then you can distort them as you please.",
+    	    	name:"Mark Twain"
+    	    },
+    	    {
+    	    	quote:"A day without sunshine is like, you know, night.",
+    	    	name:"Steve Martin"
+    	    },
+    	    {
+    	    	quote:"My grandmother started walking five miles a day when she was sixty. She's ninety-seven now, and we don't know where the hell she is.",
+    	    	name:"Ellen DeGeneres"
+    	    },
+          {
+            quote:"Life is 10% what happens to me and 90% of how I react to it.",
+            name:"Charles Swindoll"
+          },
+          {
+            quote:"I can’t change the direction of the wind, but I can adjust my sails to always reach my destination.",
+            name:"Jimmy Dean"
+          },
+          {
+            quote:"Do or do not. There is no try.",
+            name:"Yoda"
+          },
+    	    {
+    	    	quote:"Don't sweat the petty things and don't pet the sweaty things.",
+    	    	name:"George Carlin"
+    	    },
+          {
+           quote:"I’ve learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel.",
+           name:"Maya Angelou"
+          },
+    	    {
+    	    	quote:"Always do whatever's next.",
+    	    	name:"George Carlin"
+    	    },
+    	    {
+    	    	quote:"Nothing is impossible, the word itself says “I'm possible",
+    	    	name:"Audrey Hepburn"
+    	    },
+    	    {
+    	    	quote:"Hapiness is not something ready made. It comes from your own actions.",
+    	    	name:"Dalai Lama"
+    	    }
+
+    	];
 
 
-      // quotes
-      $(document).ready(function(){
-      		var quoteSource=[
-      		{
-      			quote: "Start by doing what's necessary; then do what's possible; and suddenly you are doing the impossible.",
-      			name:"Francis of Assisi"
-      	    },
-      	    {
-      	    	quote:"Believe you can and you're halfway there.",
-      	    	name:"Theodore Roosevelt"
-      	    },
-      	    {
-      	    	quote:"It does not matter how slowly you go as long as you do not stop.",
-      	    	name:"Confucius"
-      	    },
-      	    {
-      	    	quote:"Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.",
-      	    	name:"Thomas A. Edison"
-      	    },
-      	    {
-      	    	quote:"The will to win, the desire to succeed, the urge to reach your full potential... these are the keys that will unlock the door to personal excellence.",
-      	    	name:"Confucius"
-      	    },
-      	    {
-      	    	quote:"Don't watch the clock; do what it does. Keep going.",
-      	    	name:"Sam Levenson"
-      	    },
-      	    {
-      	    	quote:"A creative man is motivated by the desire to achieve, not by the desire to beat others.",
-      	    	name:"Ayn Rand"
-      	    },
-      	    {
-      	    	quote:"A creative man is motivated by the desire to achieve, not by the desire to beat others.",
-      	    	name:"Ayn Rand"
-      	    },
-      	    {
-      	    	quote:"Expect problems and eat them for breakfast.",
-      	    	name:"Alfred A. Montapert"
-      	    },
-      	    {
-      	    	quote:"Start where you are. Use what you have. Do what you can.",
-      	    	name:"Arthur Ashe"
-      	    },
-      	    {
-      	    	quote:"Ever tried. Ever failed. No matter. Try Again. Fail again. Fail better.",
-      	    	name:"Samuel Beckett"
-      	    },
-      	    {
-      	    	quote:"Be yourself; everyone else is already taken.",
-      	    	name:"Oscar Wilde"
-      	    },
-      	    {
-      	    	quote:"Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
-      	    	name:"Albert Einstein"
-      	    },
-      	    {
-      	    	quote:"Always remember that you are absolutely unique. Just like everyone else.",
-      	    	name:"Margaret Mead"
-      	    },
-      	    {
-      	    	quote:"Do not take life too seriously. You will never get out of it alive.",
-      	    	name:"Elbert Hubbard"
-      	    },
-      	    {
-      	    	quote:"People who think they know everything are a great annoyance to those of us who do.",
-      	    	name:"Isaac Asimov"
-      	    },
-      	    {
-      	    	quote:"Procrastination is the art of keeping up with yesterday.",
-      	    	name:"Don Marquis"
-      	    },
-      	    {
-      	    	quote:"Get your facts first, then you can distort them as you please.",
-      	    	name:"Mark Twain"
-      	    },
-      	    {
-      	    	quote:"A day without sunshine is like, you know, night.",
-      	    	name:"Steve Martin"
-      	    },
-      	    {
-      	    	quote:"My grandmother started walking five miles a day when she was sixty. She's ninety-seven now, and we don't know where the hell she is.",
-      	    	name:"Ellen DeGeneres"
-      	    },
-            {
-              quote:"Life is 10% what happens to me and 90% of how I react to it.",
-              name:"Charles Swindoll"
-            },
-            {
-              quote:"I can’t change the direction of the wind, but I can adjust my sails to always reach my destination.",
-              name:"Jimmy Dean"
-            },
-            {
-              quote:"Do or do not. There is no try.",
-              name:"Yoda"
-            },
-      	    {
-      	    	quote:"Don't sweat the petty things and don't pet the sweaty things.",
-      	    	name:"George Carlin"
-      	    },
-            {
-             quote:"I’ve learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel.",
-             name:"Maya Angelou"
-            },
-      	    {
-      	    	quote:"Always do whatever's next.",
-      	    	name:"George Carlin"
-      	    },
-      	    {
-      	    	quote:"Nothing is impossible, the word itself says “I'm possible",
-      	    	name:"Audrey Hepburn"
-      	    },
-      	    {
-      	    	quote:"Hapiness is not something ready made. It comes from your own actions.",
-      	    	name:"Dalai Lama"
-      	    }
+    		$('#quoteButton').click(function(evt){
+    			//define the containers of the info we target
+    			var quote = $('#quoteContainer p').text();
+    			var quoteGenius = $('#quoteGenius').text();
+    			//prevent browser's default action
+    			evt.preventDefault();
+    			//getting a new random number to attach to a quote and setting a limit
+    			var sourceLength = quoteSource.length;
+    			var randomNumber= Math.floor(Math.random()*sourceLength);
+    			//set a new quote
+    			for(i=0;i<=sourceLength;i+=1){
+    			var newQuoteText = quoteSource[randomNumber].quote;
+    			var newQuoteGenius = quoteSource[randomNumber].name;
+    			//console.log(newQuoteText,newQuoteGenius);
+          var timeAnimation = 500;
+          var quoteContainer = $('#quoteContainer');
+          //fade out animation with callback
+          quoteContainer.fadeOut(timeAnimation, function(){
+            quoteContainer.html('');
+    				quoteContainer.append('<p>'+newQuoteText+'</p>'+'<p id="quoteGenius">'+'-								'+newQuoteGenius+'</p>');
 
-      	];
-
-
-      		$('#quoteButton').click(function(evt){
-      			//define the containers of the info we target
-      			var quote = $('#quoteContainer p').text();
-      			var quoteGenius = $('#quoteGenius').text();
-      			//prevent browser's default action
-      			evt.preventDefault();
-      			//getting a new random number to attach to a quote and setting a limit
-      			var sourceLength = quoteSource.length;
-      			var randomNumber= Math.floor(Math.random()*sourceLength);
-      			//set a new quote
-      			for(i=0;i<=sourceLength;i+=1){
-      			var newQuoteText = quoteSource[randomNumber].quote;
-      			var newQuoteGenius = quoteSource[randomNumber].name;
-      			//console.log(newQuoteText,newQuoteGenius);
-            var timeAnimation = 500;
-            var quoteContainer = $('#quoteContainer');
-            //fade out animation with callback
-            quoteContainer.fadeOut(timeAnimation, function(){
-              quoteContainer.html('');
-      				quoteContainer.append('<p>'+newQuoteText+'</p>'+'<p id="quoteGenius">'+'-								'+newQuoteGenius+'</p>');
-
-              //fadein animation.
-              quoteContainer.fadeIn(timeAnimation);
-            });
-
-      			break;
-      		};//end for loop
-
-      	});//end quoteButton function
-        $.getJSON("https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=", function(a) {
-          // $("body").append(a[0].content + "<p>&mdash; " + a[0].title + "</p>")
-        });
-      });//end document ready
-
-
-
-      // get current weather
-      function weather() {
-
-        var location = document.getElementById("location");
-        var windSpeed = document.getElementById("windSpeed");
-        var apiKey = '6d3121a0caf68b6895851267a48e16c6'; // MY API KEY
-        var url = 'https://api.forecast.io/forecast/';
-
-        navigator.geolocation.getCurrentPosition(success, error);
-
-        function success(position) {
-          latitude = position.coords.latitude;
-          longitude = position.coords.longitude;
-          windSpeed = position.coords.windSpeed;
-
-          location.innerHTML = 'Latitude is ' + latitude + '° <br> Longitude is ' + longitude + '°';
-
-           $.getJSON(url + apiKey + "/" + latitude + "," + longitude + "?callback=?", function(data) {
-            $('#temp').html(data.currently.temperature + '° F');
-            $('#minutely').html(data.hourly.summary);
-            $('#windSpeed').html('Windspeed: ' + data.currently.windSpeed + ' mph');
+            //fadein animation.
+            quoteContainer.fadeIn(timeAnimation);
           });
-        }
 
-        function error() {
-          location.innerHTML = "Unable to retrieve your location";
-        }
+    			break;
+    		};//end for loop
 
-        location.innerHTML = "Locating...";
+    	});//end quoteButton function
+      $.getJSON("https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=", function(a) {
+        // $("body").append(a[0].content + "<p>&mdash; " + a[0].title + "</p>")
+      });
+    });//end document ready
+
+
+
+    // get current weather
+    function weather() {
+
+      var location = document.getElementById("location");
+      var windSpeed = document.getElementById("windSpeed");
+      var apiKey = '6d3121a0caf68b6895851267a48e16c6'; // MY API KEY
+      var url = 'https://api.forecast.io/forecast/';
+
+      navigator.geolocation.getCurrentPosition(success, error);
+
+      function success(position) {
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+        windSpeed = position.coords.windSpeed;
+
+        location.innerHTML = 'Latitude is ' + latitude + '° <br> Longitude is ' + longitude + '°';
+
+         $.getJSON(url + apiKey + "/" + latitude + "," + longitude + "?callback=?", function(data) {
+          $('#temp').html(data.currently.temperature + '° F');
+          $('#minutely').html(data.hourly.summary);
+          $('#windSpeed').html('Windspeed: ' + data.currently.windSpeed + ' mph');
+        });
       }
 
-      weather();
+      function error() {
+        location.innerHTML = "Unable to retrieve your location";
+      }
+
+      location.innerHTML = "Locating...";
+    }
+
+    weather();
 
 
 
-      //gets current time
-      function checkTime(i) {
-        if (i < 10) {
-          // add a zero in front of numbers<10
-          i = "0" + i;
-        }
-        return i;
-        }
+    //gets current time
+    function checkTime(i) {
+      if (i < 10) {
+        // add a zero in front of numbers<10
+        i = "0" + i;
+      }
+      return i;
+      }
 
-        function startTime() {
-        var today = new Date();
-        //puts hours in standard time instead of military time
-        var h = today.getHours()%12;
-        var m = today.getMinutes();
-        var s = today.getSeconds();
+      function startTime() {
+      var today = new Date();
+      //puts hours in standard time instead of military time
+      var h = today.getHours()%12;
+      var m = today.getMinutes();
+      var s = today.getSeconds();
 
-        m = checkTime(m);
-        s = checkTime(s);
-        document.getElementById('ticktock').innerHTML = h + ":" + m + ":" + s;
-        t = setTimeout(function() {
-          startTime()
-        }, 500);
-        }
-        startTime();
-
-
-
-
-
-      // //countdown timer
-      var cD = <%= Task.sum(:time) %>
-      var pageLoadTime = new Date();
-
-        // document.getElementById('timer').innerHTML =
-        // cD + ":" + 00;
-      // startTimer();
-      //
-      // function startTimer() {
-      //   var presentTime = document.getElementById('timer').innerHTML;
-      //   var timeArray = presentTime.split(/[:]+/);
-      //   var m = timeArray[0];
-      //   var s = checkSecond((timeArray[1] - 1));
-      //   if(s==59){m=m-1}
-      //   // if(m<0){alert('timer completed')}
-      //
-      //   document.getElementById('timer').innerHTML =
-      //     m + ":" + s;
-      //   setTimeout(startTimer, 1000);
-      // }
-      //
-      // function checkSecond(sec) {
-      //   if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
-      //   if (sec < 0) {sec = "59"};
-      //   return sec;
-      // }
+      m = checkTime(m);
+      s = checkTime(s);
+      document.getElementById('ticktock').innerHTML = h + ":" + m + ":" + s;
+      t = setTimeout(function() {
+        startTime()
+      }, 500);
+      }
+      startTime();
 
 
 
 
-// google apis
 
-$(function() {
-    // add input listeners
-    google.maps.event.addDomListener(window, 'load', function () {
-        var from_places = new google.maps.places.Autocomplete(document.getElementById('from_places'));
-        var to_places = new google.maps.places.Autocomplete(document.getElementById('to_places'));
+    // countdown timer
+    var cD = <%= Task.sum(:time) %>
+    var pageLoadTime = new Date();
 
-        google.maps.event.addListener(from_places, 'place_changed', function () {
-            var from_place = from_places.getPlace();
-            var from_address = from_place.formatted_address;
-            $('#origin').val(from_address);
-        });
+    // document.getElementById('timer').innerHTML =
+      // cD + ":" + 00;
+    // startTimer();
+    //
+    // function startTimer() {
+    //   var presentTime = document.getElementById('timer').innerHTML;
+    //   var timeArray = presentTime.split(/[:]+/);
+    //   var m = timeArray[0];
+    //   var s = checkSecond((timeArray[1] - 1));
+    //   if(s==59){m=m-1}
+    //   // if(m<0){alert('timer completed')}
+    //
+    //   document.getElementById('timer').innerHTML =
+    //     m + ":" + s;
+    //   setTimeout(startTimer, 1000);
+    // }
+    //
+    // function checkSecond(sec) {
+    //   if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
+    //   if (sec < 0) {sec = "59"};
+    //   return sec;
+    // }
 
-        google.maps.event.addListener(to_places, 'place_changed', function () {
-            var to_place = to_places.getPlace();
-            var to_address = to_place.formatted_address;
-            $('#destination').val(to_address);
-        });
 
+
+      // google apis
+
+      $(function() {
+          // add input listeners
+          google.maps.event.addDomListener(window, 'load', function () {
+              var from_places = new google.maps.places.Autocomplete(document.getElementById('from_places'));
+              var to_places = new google.maps.places.Autocomplete(document.getElementById('to_places'));
+
+              google.maps.event.addListener(from_places, 'place_changed', function () {
+                  var from_place = from_places.getPlace();
+                  var from_address = from_place.formatted_address;
+                  $('#origin').val(from_address);
+              });
+
+              google.maps.event.addListener(to_places, 'place_changed', function () {
+                  var to_place = to_places.getPlace();
+                  var to_address = to_place.formatted_address;
+                  $('#destination').val(to_address);
+              });
+
+          });
+
+
+          // calculate distance
+          function calculateDistance() {
+              var origin = $('#origin').val();
+              var destination = $('#destination').val();
+              var service = new google.maps.DistanceMatrixService();
+              service.getDistanceMatrix(
+                  {
+                      origins: [origin],
+                      destinations: [destination],
+                      travelMode: google.maps.TravelMode.DRIVING,
+                      unitSystem: google.maps.UnitSystem.IMPERIAL, // miles and feet.
+                      // unitSystem: google.maps.UnitSystem.metric, // kilometers and meters.
+                      avoidHighways: false,
+                      avoidTolls: false
+                  }, callback);
+          }
+          // get distance results
+          function callback(response, status) {
+              if (status != google.maps.DistanceMatrixStatus.OK) {
+                  $('#result').html(err);
+              } else {
+                  var origin = response.originAddresses[0];
+                  var destination = response.destinationAddresses[0];
+                  if (response.rows[0].elements[0].status === "ZERO_RESULTS") {
+                      $('#result').html("Better get on a plane. There are no roads between "  + origin + " and " + destination);
+                  } else {
+                      var distance = response.rows[0].elements[0].distance;
+                      var duration = response.rows[0].elements[0].duration;
+                      console.log(response.rows[0].elements[0].distance);
+                      var distance_in_kilo = distance.value / 1000; // the kilom
+                      var distance_in_mile = distance.value / 1609.34; // the mile
+                      var duration_text = duration.text;
+                      var duration_value = duration.value;
+
+                      var newTimeLeft = Math.ceil(cD - (duration.value / 60) - (Date.now() - pageLoadTime.getTime()) / 60000);
+                      document.getElementById('timer').innerHTML = newTimeLeft + ":" + "00";
+
+
+
+                      $('#in_mile').text(distance_in_mile.toFixed(2));
+                      $('#in_kilo').text(distance_in_kilo.toFixed(2));
+                      $('#duration_text').text(duration_text);
+                      $('#duration_value').text(duration_value);
+                      $('#from').text(origin);
+                      $('#to').text(destination);
+                  }
+              }
+          }
+          // print results on submit the form
+          $('#distance_form').submit(function(e){
+              e.preventDefault();
+              calculateDistance();
+          });
+
+      });
+
+
+
+
+    //Good morning texting-like robot below
+
+    var botui = new BotUI("bot"); // give it the id of container
+
+    botui.message.bot({
+    	// show first message
+    	delay: 500,
+    	content: "Good Morning ",
+    	loading: true // fake typing
+    }).then(function () {
+    	return botui.message.bot({
+    		// second one
+    		delay: 500,
+    		loading: true,
+    		content: "How are you feeling?"
+    	});
+    }).then(function () {
+    	return botui.action.button({
+    		// let user choose something
+    		delay: 300,
+    		action: [{
+    			text: "Okay",
+    			value: "Okay"
+    		}, {
+    			text: "Good",
+    			value: "Good"
+    		}, {
+    			text: "Awesome",
+    			value: "Awesome"
+    		}, {
+    			text: "Amazing!",
+    			value: "awfully_good"
+    		}]
+    	});
+    }).then(function (res) {
+    	return botui.message.bot({
+    		delay: 400,
+    		loading: true, // pretend like we are doing something
+    		content: "Glad you're feeling " + res.text.toLowerCase() + "!"
+    	});
+    }).then(function () {
+    	botui.message.bot({
+    		delay: 700,
+    		loading: true,
+    		content: "How did you sleep?"
+    	}).then(function () {
+    		return botui.action.text({
+    			delay: 400,
+    			action: {
+    				size: 18,
+    				icon: "user-circle-o",
+    				sub_type: "text",
+    				placeholder: "Well? Hard?"
+    			}
+    		});
+    	}).then(function (res) {
+    		name = res.value; // save new value
+    		return botui.message.bot({
+    			delay: 300,
+    			loading: true,
+    			content: "Let's start this morning off positive!"
+    		});
+    	}).then(function (res) {
+    		name = res.value; // save new value
+    		return botui.message.bot({
+    			delay: 300,
+    			loading: true,
+    			content: "What's something you're thankful for?"
+    		});
+    	}).then(function () {
+      	return botui.action.button({
+      		// let user choose something
+      		delay: 300,
+      		action: [{
+      			text: "Waking up today",
+      			value: "be alive"
+      		}, {
+      			text: "Feeling loved",
+      			value: "feel loved"
+      		}, {
+      			text: "Having a home",
+      			value: "have a home"
+      		}, {
+      			text: "Having a family!",
+      			value: "have a family"
+      		}]
+      	});
+      }).then(function (res) {
+      	return botui.message.bot({
+      		delay: 400,
+      		loading: true, // pretend like we are doing something
+      		content: "Isn't " + res.text.toLowerCase() + " great! "
+      	});
+      }).then(function (res) {
+    		name = res.value; // save new value
+    		return botui.message.bot({
+    			delay: 300,
+    			loading: true,
+    			content: "Better get a move on now. Don't want to be late!"  + "! ![hello image](https://media1.tenor.com/images/a9b3e91e8db7b177b0e3fa7c67a2ecfa/tenor.gif?itemid=4710146)"
+    		});
+      });
     });
 
 
-    // calculate distance
-    function calculateDistance() {
-        var origin = $('#origin').val();
-        var destination = $('#destination').val();
-        var service = new google.maps.DistanceMatrixService();
-        service.getDistanceMatrix(
-            {
-                origins: [origin],
-                destinations: [destination],
-                travelMode: google.maps.TravelMode.DRIVING,
-                unitSystem: google.maps.UnitSystem.IMPERIAL, // miles and feet.
-                // unitSystem: google.maps.UnitSystem.metric, // kilometers and meters.
-                avoidHighways: false,
-                avoidTolls: false
-            }, callback);
+
+
+
+
+    // speech ai
+
+    if (annyang) {
+      // Let's define a command.
+      var commands = {
+        'good morning timothy': function() { var msg = new SpeechSynthesisUtterance('Good morning, Autumn');
+        window.speechSynthesis.speak(msg); }
+      };
+
+      // Add our commands to annyang
+      annyang.addCommands(commands);
+
+      // Start listening.
+      annyang.start();
     }
-    // get distance results
-    function callback(response, status) {
-        if (status != google.maps.DistanceMatrixStatus.OK) {
-            $('#result').html(err);
-        } else {
-            var origin = response.originAddresses[0];
-            var destination = response.destinationAddresses[0];
-            if (response.rows[0].elements[0].status === "ZERO_RESULTS") {
-                $('#result').html("Better get on a plane. There are no roads between "  + origin + " and " + destination);
-            } else {
-                var distance = response.rows[0].elements[0].distance;
-                var duration = response.rows[0].elements[0].duration;
-                console.log(response.rows[0].elements[0].distance);
-                var distance_in_kilo = distance.value / 1000; // the kilom
-                var distance_in_mile = distance.value / 1609.34; // the mile
-                var duration_text = duration.text;
-                var duration_value = duration.value;
 
-                var newTimeLeft = Math.ceil(cD - (duration.value / 60) - (Date.now() - pageLoadTime.getTime()) / 60000);
-                document.getElementById('timer').innerHTML = newTimeLeft + ":" + "00";
+    if (annyang) {
+      // Let's define a command.
+      var commands = {
+        'what time is it': function() { var msg = new SpeechSynthesisUtterance('It is blank oclock');
+        window.speechSynthesis.speak(msg); }
+      };
 
+      // Add our commands to annyang
+      annyang.addCommands(commands);
 
-
-                $('#in_mile').text(distance_in_mile.toFixed(2));
-                $('#in_kilo').text(distance_in_kilo.toFixed(2));
-                $('#duration_text').text(duration_text);
-                $('#duration_value').text(duration_value);
-                $('#from').text(origin);
-                $('#to').text(destination);
-            }
-        }
+      // Start listening.
+      annyang.start();
     }
-    // print results on submit the form
-    $('#distance_form').submit(function(e){
-        e.preventDefault();
-        calculateDistance();
-    });
 
-});
+    if (annyang) {
+      // Let's define a command.
+      var commands = {
+        'how much time is left': function() { var msg = new SpeechSynthesisUtterance('All the time in the world');
+        window.speechSynthesis.speak(msg); }
+      };
 
+      // Add our commands to annyang
+      annyang.addCommands(commands);
 
+      // Start listening.
+      annyang.start();
+    }
 
+    if (annyang) {
+      // Let's define a command.
+      var commands = {
+        'thank you': function() { var msg = new SpeechSynthesisUtterance('Your very welcome');
+        window.speechSynthesis.speak(msg); }
+      };
 
-//Good morning texting-like robot below
+      // Add our commands to annyang
+      annyang.addCommands(commands);
 
-var botui = new BotUI("bot"); // give it the id of container
+      // Start listening.
+      annyang.start();
+    }
 
-botui.message.bot({
-	// show first message
-	delay: 500,
-	content: "Good Morning ",
-	loading: true // fake typing
-}).then(function () {
-	return botui.message.bot({
-		// second one
-		delay: 500,
-		loading: true,
-		content: "How are you feeling?"
-	});
-}).then(function () {
-	return botui.action.button({
-		// let user choose something
-		delay: 300,
-		action: [{
-			text: "Okay",
-			value: "Okay"
-		}, {
-			text: "Good",
-			value: "Good"
-		}, {
-			text: "Awesome",
-			value: "Awesome"
-		}, {
-			text: "Amazing!",
-			value: "awfully_good"
-		}]
-	});
-}).then(function (res) {
-	return botui.message.bot({
-		delay: 400,
-		loading: true, // pretend like we are doing something
-		content: "Glad you're feeling " + res.text.toLowerCase() + "!"
-	});
-}).then(function () {
-	botui.message.bot({
-		delay: 700,
-		loading: true,
-		content: "How did you sleep?"
-	}).then(function () {
-		return botui.action.text({
-			delay: 400,
-			action: {
-				size: 18,
-				icon: "user-circle-o",
-				sub_type: "text",
-				placeholder: "Well? Hard?"
-			}
-		});
-	}).then(function (res) {
-		name = res.value; // save new value
-		return botui.message.bot({
-			delay: 300,
-			loading: true,
-			content: "Let's start this morning off positive!"
-		});
-	}).then(function (res) {
-		name = res.value; // save new value
-		return botui.message.bot({
-			delay: 300,
-			loading: true,
-			content: "What's something you're thankful for?"
-		});
-	}).then(function () {
-  	return botui.action.button({
-  		// let user choose something
-  		delay: 300,
-  		action: [{
-  			text: "Waking up today",
-  			value: "be alive"
-  		}, {
-  			text: "Feeling loved",
-  			value: "feel loved"
-  		}, {
-  			text: "Having a home",
-  			value: "have a home"
-  		}, {
-  			text: "Having a family!",
-  			value: "have a family"
-  		}]
-  	});
-  }).then(function (res) {
-  	return botui.message.bot({
-  		delay: 400,
-  		loading: true, // pretend like we are doing something
-  		content: "Isn't " + res.text.toLowerCase() + " great! "
-  	});
-  }).then(function (res) {
-		name = res.value; // save new value
-		return botui.message.bot({
-			delay: 300,
-			loading: true,
-			content: "Better get a move on now. Don't want to be late!"  + "! ![hello image](https://media1.tenor.com/images/a9b3e91e8db7b177b0e3fa7c67a2ecfa/tenor.gif?itemid=4710146)"
-		});
-  });
-});
+    if (annyang) {
+      // Let's define a command.
+      var commands = {
+        'say hello to the class timothy': function() { var msg = new SpeechSynthesisUtterance('hello everyone');
+        window.speechSynthesis.speak(msg); }
+      };
 
+      // Add our commands to annyang
+      annyang.addCommands(commands);
 
+      // Start listening.
+      annyang.start();
+    }
 
+    if (annyang) {
+      // Let's define a command.
+      var commands = {
+        'cool': function() { var msg = new SpeechSynthesisUtterance('yes, very cool');
+        window.speechSynthesis.speak(msg); }
+      };
 
+      // Add our commands to annyang
+      annyang.addCommands(commands);
 
+      // Start listening.
+      annyang.start();
+    }
 
-// speech ai
+    if (annyang) {
+      // Let's define a command.
+      var commands = {
+        'nevermind': function() { var msg = new SpeechSynthesisUtterance('okay');
+        window.speechSynthesis.speak(msg); }
+      };
 
-if (annyang) {
-  // Let's define a command.
-  var commands = {
-    'good morning timothy': function() { var msg = new SpeechSynthesisUtterance('Good morning, Autumn');
-    window.speechSynthesis.speak(msg); }
-  };
+      // Add our commands to annyang
+      annyang.addCommands(commands);
 
-  // Add our commands to annyang
-  annyang.addCommands(commands);
+      // Start listening.
+      annyang.start();
+    }
 
-  // Start listening.
-  annyang.start();
-}
+    if (annyang) {
+      // Let's define a command.
+      var commands = {
+        'explain the app': function() { var msg = new SpeechSynthesisUtterance('this app is designed to make your mornings easier, by putting everything you need to stay on time, right at your fingertips');
+        window.speechSynthesis.speak(msg); }
+      };
 
-if (annyang) {
-  // Let's define a command.
-  var commands = {
-    'what time is it': function() { var msg = new SpeechSynthesisUtterance('It is blank oclock');
-    window.speechSynthesis.speak(msg); }
-  };
+      // Add our commands to annyang
+      annyang.addCommands(commands);
 
-  // Add our commands to annyang
-  annyang.addCommands(commands);
+      // Start listening.
+      annyang.start();
+    }
 
-  // Start listening.
-  annyang.start();
-}
+    if (annyang) {
+      // Let's define a command.
+      var commands = {
+        'explain further': function() { var msg = new SpeechSynthesisUtterance('the weather, for example, is right here, so you know exactly how to dress for the day');
+        window.speechSynthesis.speak(msg); }
+      };
 
-if (annyang) {
-  // Let's define a command.
-  var commands = {
-    'how much time is left': function() { var msg = new SpeechSynthesisUtterance('All the time in the world');
-    window.speechSynthesis.speak(msg); }
-  };
+      // Add our commands to annyang
+      annyang.addCommands(commands);
 
-  // Add our commands to annyang
-  annyang.addCommands(commands);
+      // Start listening.
+      annyang.start();
+    }
 
-  // Start listening.
-  annyang.start();
-}
+    if (annyang) {
+      // Let's define a command.
+      var commands = {
+        'go on': function() { var msg = new SpeechSynthesisUtterance('I also take into account traveling time and distance, to make sure you have plenty of time to get to where you need to go on time.');
+        window.speechSynthesis.speak(msg); }
+      };
 
-if (annyang) {
-  // Let's define a command.
-  var commands = {
-    'thank you': function() { var msg = new SpeechSynthesisUtterance('Your very welcome');
-    window.speechSynthesis.speak(msg); }
-  };
+      // Add our commands to annyang
+      annyang.addCommands(commands);
 
-  // Add our commands to annyang
-  annyang.addCommands(commands);
+      // Start listening.
+      annyang.start();
+    }
 
-  // Start listening.
-  annyang.start();
-}
+    if (annyang) {
+      // Let's define a command.
+      var commands = {
+        'timothy': function() { var msg = new SpeechSynthesisUtterance('yes?');
+        window.speechSynthesis.speak(msg); }
+      };
 
-if (annyang) {
-  // Let's define a command.
-  var commands = {
-    'say hello to the class timothy': function() { var msg = new SpeechSynthesisUtterance('hello everyone');
-    window.speechSynthesis.speak(msg); }
-  };
+      // Add our commands to annyang
+      annyang.addCommands(commands);
 
-  // Add our commands to annyang
-  annyang.addCommands(commands);
+      // Start listening.
+      annyang.start();
+    }
 
-  // Start listening.
-  annyang.start();
-}
+    if (annyang) {
+      // Let's define a command.
+      var commands = {
+        'hello?': function() { var msg = new SpeechSynthesisUtterance('hello');
+        window.speechSynthesis.speak(msg); }
+      };
 
-if (annyang) {
-  // Let's define a command.
-  var commands = {
-    'cool': function() { var msg = new SpeechSynthesisUtterance('yes, very cool');
-    window.speechSynthesis.speak(msg); }
-  };
+      // Add our commands to annyang
+      annyang.addCommands(commands);
 
-  // Add our commands to annyang
-  annyang.addCommands(commands);
-
-  // Start listening.
-  annyang.start();
-}
-
-if (annyang) {
-  // Let's define a command.
-  var commands = {
-    'nevermind': function() { var msg = new SpeechSynthesisUtterance('okay');
-    window.speechSynthesis.speak(msg); }
-  };
-
-  // Add our commands to annyang
-  annyang.addCommands(commands);
-
-  // Start listening.
-  annyang.start();
-}
-
-if (annyang) {
-  // Let's define a command.
-  var commands = {
-    'explain the app': function() { var msg = new SpeechSynthesisUtterance('this app is designed to make your mornings easier, by putting everything you need to stay on time, right at your fingertips');
-    window.speechSynthesis.speak(msg); }
-  };
-
-  // Add our commands to annyang
-  annyang.addCommands(commands);
-
-  // Start listening.
-  annyang.start();
-}
-
-if (annyang) {
-  // Let's define a command.
-  var commands = {
-    'explain further': function() { var msg = new SpeechSynthesisUtterance('the weather, for example, is right here, so you know exactly how to dress for the day');
-    window.speechSynthesis.speak(msg); }
-  };
-
-  // Add our commands to annyang
-  annyang.addCommands(commands);
-
-  // Start listening.
-  annyang.start();
-}
-
-if (annyang) {
-  // Let's define a command.
-  var commands = {
-    'go on': function() { var msg = new SpeechSynthesisUtterance('I also take into account traveling time and distance, to make sure you have plenty of time to get to where you need to go on time.');
-    window.speechSynthesis.speak(msg); }
-  };
-
-  // Add our commands to annyang
-  annyang.addCommands(commands);
-
-  // Start listening.
-  annyang.start();
-}
-
-if (annyang) {
-  // Let's define a command.
-  var commands = {
-    'timothy': function() { var msg = new SpeechSynthesisUtterance('yes?');
-    window.speechSynthesis.speak(msg); }
-  };
-
-  // Add our commands to annyang
-  annyang.addCommands(commands);
-
-  // Start listening.
-  annyang.start();
-}
-
-if (annyang) {
-  // Let's define a command.
-  var commands = {
-    'hello?': function() { var msg = new SpeechSynthesisUtterance('hello');
-    window.speechSynthesis.speak(msg); }
-  };
-
-  // Add our commands to annyang
-  annyang.addCommands(commands);
-
-  // Start listening.
-  annyang.start();
-}
+      // Start listening.
+      annyang.start();
+    }
 
 
 </script>
