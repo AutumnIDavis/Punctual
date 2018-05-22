@@ -280,14 +280,15 @@ input[type="submit"] {
 
 #ticktock{
  position: relative;
- color: white;
+ color: black;
  font-size: 150px;
  left: 37%;
  top: -1250px;
- border: solid 7px;
+ // border: solid 7px;
  width: 41%;
  padding: 2% 0% 2% 2%;
  text-align: center;
+ // background-image: url("leaves");
 }
 
 .totalTime{
@@ -419,12 +420,13 @@ iframe{
 
 .newT{
   position: relative;
-  left: -17%;
+  left: -14%;
   width: 1963px;
-  top: -280px;
+  top: -300px;
   z-index: 2;
   display: inline-flex;
-  background-color: #ffffff14;
+  /* background-color: #ffffff14; */
+  text-align: center;
 }
 
 #timeInput{

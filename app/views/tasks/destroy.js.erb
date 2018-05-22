@@ -5,7 +5,7 @@ $(document).ready(function() {
 });
 
 var time = <%= @time %>
-var newTimeLeft = Math.ceil(Number(document.getElementById('timer').innerHTML.split(":")[0]) + time)
+var newTimeLeft = Math.ceil(Number(document.getElementById('timer').innerHTML.split(":")[0]) - time)
 console.log(newTimeLeft);
 document.getElementById('timer').innerHTML = newTimeLeft + ":" + "00";
 

@@ -116,7 +116,7 @@
               <p><em>(in minutes)</em></p>
             </div>
           <br>
-            <div class="actions" style= "top: 10px; position:  relative;left:  143%;">
+            <div class="actions" style= "top: 10px; position:  relative;left:  113%;">
               <%= form.submit %>
             </div>
           <% end %>
@@ -181,7 +181,7 @@
           <div id="ticktock"></div>
             <br>
           <div class="countDown">
-            <div>You have <span id="timer"></span> minutes before you leave</div>
+            <div>It takes you <span id="timer"></span> to get to your destination.</div>
           </div>
 
           <p style= "position: relative;top: -1299px;left: 48%;" id="departTime">  <%= Task.sum(:time) %> minutes</p>
