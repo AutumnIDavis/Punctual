@@ -9,6 +9,11 @@ html {
 }
 
 body {
+
+  margin: 0;
+  top: -30px;
+  position: relative;
+
  	height: 100%;
   background: -webkit-linear-gradient(40deg, #4CB8C4 10%, #ecc6d5 100%);
   background:    -moz-linear-gradient(40deg, #4CB8C4 10%, #ecc6d5 100%);
@@ -49,12 +54,15 @@ body {
 }
 
 .task_list_title {
-	text-align: center;
-	font-weight: 700;
-	font-size: 2.5rem;
-	text-transform: uppercase;
-	color: white;
-	margin: 0;
+  text-align: center;
+  font-weight: 700;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  color: #ed569e69;
+  margin: 0;
+  top: 314px;
+  position: relative;
+  background-color: #3ac4c95e;
 	a {
 		text-decoration: none;
 		color: white;
@@ -253,10 +261,9 @@ input[type="submit"] {
   position: relative;
   text-align: center;
   padding: 0% 15%;
-  top: -635px;
-  left: 18%;
+  top: -346px;
+  left: 17%;
   overflow: scroll;
-  // z-index: -1;
 }
 
 .signDisplay{
@@ -272,14 +279,16 @@ input[type="submit"] {
 }
 
 #ticktock{
-  position: relative;
-  color: white;
-  font-size: 50px;
-  left: 46%;
-  top: -800px;
-  border: solid 7px;
-  width: 24%;
-  padding: 2% 0% 2% 6%;
+ position: relative;
+ color: black;
+ font-size: 150px;
+ left: 37%;
+ top: -1250px;
+ // border: solid 7px;
+ width: 41%;
+ padding: 2% 0% 2% 2%;
+ text-align: center;
+ // background-image: url("leaves");
 }
 
 .totalTime{
@@ -295,11 +304,10 @@ input[type="submit"] {
 
 .countDown{
   position: relative;
-  left: 48%;
+  left: 50%;
   margin: 19px -38px;
-  top: -1026px;
+  top: -1280px;
   color: red;
-
 }
 
 #travel{
@@ -394,7 +402,7 @@ iframe{
 
 .clocks{
   position: relative;
-  top: -550px;
+  top: -482px;
   font-size: 23px;
   left: -7%;
 }
@@ -412,12 +420,13 @@ iframe{
 
 .newT{
   position: relative;
-  left: -17%;
+  left: -14%;
   width: 1963px;
-  top: -280px;
+  top: -300px;
   z-index: 2;
   display: inline-flex;
-  background-color: #ffffff14;
+  /* background-color: #ffffff14; */
+  text-align: center;
 }
 
 #timeInput{
@@ -438,7 +447,7 @@ iframe{
   display: inline-flex;
   position: relative;
   left: 75%;
-  top: -210px;
+  top: -158px;
   z-index: 1;
 }
 
