@@ -184,7 +184,7 @@
             <div>You have <span id="timer"></span> minutes before you leave</div>
           </div>
 
-          <p style= "position:  relative;top: -867px;left: 46%;" id="departTime">Destination Arrival: <%= Task.sum(:time) %> minutes</p>
+          <p style= "position:  relative;top: -867px;left: 46%;" id="departTime">  <%= Task.sum(:time) %> minutes</p>
     </div>
 
     <!-- weather // tryenlight.github.io/demo/weather-project/ -->
@@ -235,50 +235,6 @@
 <script>
 
 
-// attempt at making a departure time functions below
-
-      // var departTime = Math.ceil(cD + newTimeLeft) + ":" + "00";
-      // var cD = <%= Task.sum(:time) %>
-      // var today = new Today();
-      // document.getElementById('departTime').innerText = cD + today.getHours()%12
-      // // document.getElementById('departTime').innerText = newDepartTime + ":" + "00";
-      // // console.log(departTime.innerHTML)
-      //
-      //
-
-      // function departTime() {
-      // var today = new Date();
-      // //puts hours in standard time instead of military time
-      // var h = today.getHours()%12;
-      // var m = today.getMinutes();
-      // var s = today.getSeconds();
-      //
-      // var newH = today.getHours()%12+ cD;
-      // var newM = today.getMinutes();
-      // var newS = today.getSeconds();
-      //
-      // m = checkTime(m);
-      // s = checkTime(s);
-      // document.getElementById('departTime').innerText = (newH + ":" + newM + ":" + newS)
-      // t = setTimeout(function() {
-      //   departTime()
-      // }, 500);
-      // }
-      //
-      // departTime();
-
-      // $(document).ready(function() {
-      //     var hours = Math.floor( $('.cD').html() / 60);
-      //     var minutes = $('.cD').html() % 60;
-      //
-      //     document.getElementById('departTime').innerText = (hours + ":" + minutes)
-      //
-      //     $('.convertedHour').html(hours);
-      //     $('.convertedMin').html(minutes);
-      //
-      // });
-
-
 
       // alarm clock
       var sound = new Audio("https://www.freespecialeffects.co.uk/soundfx/music/fanfare3.wav");
@@ -290,9 +246,9 @@
       var currentTime = setInterval(function(){
       	var date = new Date();
 
-      	// var hours = (12 - (date.getHours()));
+      	var hours = (12 - (date.getHours()));
 
-      	var hours = date.getHours();
+      	// var hours = date.getHours();
 
       	var minutes = date.getMinutes();
 
@@ -395,8 +351,8 @@
 
       	var date = new Date();
 
-      	// var hours = (12 - (date.getHours()));
-      	var hours = date.getHours();
+      	var hours = (12 - (date.getHours()));
+      	// var hours = date.getHours();
 
       	var minutes = date.getMinutes();
 
@@ -694,9 +650,8 @@
     window.setInterval(function () {
       let d = new Date();
       let arrivalTime = new Date(60000 * (Number(document.getElementById('timer').innerHTML.split(":")[0]) + d.getTime()/60000))
-      document.getElementById('departTime').innerHTML = arrivalTime.toString().split(" ")[4];
+      document.getElementById('departTime').innerHTML = "Destination Arrival Time: "+ arrivalTime.toString().split(" ")[4];
       if (Number(arrivalTime.toString().split(" ")[4].split(":")[0])) {
-
       }
     }, 1000);
       // cD + ":" + 00;
