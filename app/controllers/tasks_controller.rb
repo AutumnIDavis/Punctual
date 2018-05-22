@@ -35,6 +35,7 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
+    @time = @task.time
     respond_to do |format|
       if @task.save
         format.js
@@ -59,6 +60,7 @@ class TasksController < ApplicationController
   # DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy
+    @time = @task.time
     @task.destroy
     # respond_to do |format|
     #   format.js
