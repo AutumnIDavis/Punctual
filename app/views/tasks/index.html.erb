@@ -94,6 +94,7 @@
       <br><br>
     </div>
 
+
     <!-- new task -->
     <div class="newT">
           <%= form_with(model: @task, remote: true) do |form| %>
@@ -234,7 +235,7 @@
 <script>
 
 
-  // attempt at making a departure time functions below
+// attempt at making a departure time functions below
 
 // var departTime = Math.ceil(cD + newTimeLeft) + ":" + "00";
 // var cD = <%= Task.sum(:time) %>
@@ -474,6 +475,7 @@
       }
 
 
+
     // quotes
     $(document).ready(function(){
     		var quoteSource=[
@@ -644,7 +646,8 @@
         longitude = position.coords.longitude;
         windSpeed = position.coords.windSpeed;
 
-        location.innerHTML = 'Latitude is ' + latitude + '° <br> Longitude is ' + longitude + '°';
+        location.innerHTML = " ";
+        // location.innerHTML = 'Latitude is ' + latitude + '° <br> Longitude is ' + longitude + '°';
 
          $.getJSON(url + apiKey + "/" + latitude + "," + longitude + "?callback=?", function(data) {
           $('#temp').html(data.currently.temperature + '° F');
@@ -803,7 +806,6 @@
 
 
 
-
     //Good morning texting-like robot below
 
     var botui = new BotUI("bot"); // give it the id of container
@@ -906,8 +908,6 @@
     		});
       });
     });
-
-
 
 
 
