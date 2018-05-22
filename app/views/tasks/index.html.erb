@@ -184,7 +184,7 @@
             <div>You have <span id="timer"></span> minutes before you leave</div>
           </div>
 
-          <!-- <p style= "position:  relative;top: -867px;left: 46%;" id="departTime">Destination Arrival: <%= Task.sum(:time) %> minutes</p> -->
+          <p style= "position:  relative;top: -867px;left: 46%;" id="departTime">Destination Arrival: <%= Task.sum(:time) %> minutes</p>
     </div>
 
     <!-- weather // tryenlight.github.io/demo/weather-project/ -->
@@ -237,46 +237,46 @@
 
 // attempt at making a departure time functions below
 
-// var departTime = Math.ceil(cD + newTimeLeft) + ":" + "00";
-// var cD = <%= Task.sum(:time) %>
-// var today = new Today();
-// document.getElementById('departTime').innerText = cD + today.getHours()%12
-// // document.getElementById('departTime').innerText = newDepartTime + ":" + "00";
-// // console.log(departTime.innerHTML)
-//
-//
+      // var departTime = Math.ceil(cD + newTimeLeft) + ":" + "00";
+      // var cD = <%= Task.sum(:time) %>
+      // var today = new Today();
+      // document.getElementById('departTime').innerText = cD + today.getHours()%12
+      // // document.getElementById('departTime').innerText = newDepartTime + ":" + "00";
+      // // console.log(departTime.innerHTML)
+      //
+      //
 
-// function departTime() {
-// var today = new Date();
-// //puts hours in standard time instead of military time
-// var h = today.getHours()%12;
-// var m = today.getMinutes();
-// var s = today.getSeconds();
-//
-// var newH = today.getHours()%12+ cD;
-// var newM = today.getMinutes();
-// var newS = today.getSeconds();
-//
-// m = checkTime(m);
-// s = checkTime(s);
-// document.getElementById('departTime').innerText = (newH + ":" + newM + ":" + newS)
-// t = setTimeout(function() {
-//   departTime()
-// }, 500);
-// }
-//
-// departTime();
+      // function departTime() {
+      // var today = new Date();
+      // //puts hours in standard time instead of military time
+      // var h = today.getHours()%12;
+      // var m = today.getMinutes();
+      // var s = today.getSeconds();
+      //
+      // var newH = today.getHours()%12+ cD;
+      // var newM = today.getMinutes();
+      // var newS = today.getSeconds();
+      //
+      // m = checkTime(m);
+      // s = checkTime(s);
+      // document.getElementById('departTime').innerText = (newH + ":" + newM + ":" + newS)
+      // t = setTimeout(function() {
+      //   departTime()
+      // }, 500);
+      // }
+      //
+      // departTime();
 
-// $(document).ready(function() {
-//     var hours = Math.floor( $('.cD').html() / 60);
-//     var minutes = $('.cD').html() % 60;
-//
-//     document.getElementById('departTime').innerText = (hours + ":" + minutes)
-//
-//     $('.convertedHour').html(hours);
-//     $('.convertedMin').html(minutes);
-//
-// });
+      // $(document).ready(function() {
+      //     var hours = Math.floor( $('.cD').html() / 60);
+      //     var minutes = $('.cD').html() % 60;
+      //
+      //     document.getElementById('departTime').innerText = (hours + ":" + minutes)
+      //
+      //     $('.convertedHour').html(hours);
+      //     $('.convertedMin').html(minutes);
+      //
+      // });
 
 
 
@@ -290,9 +290,9 @@
       var currentTime = setInterval(function(){
       	var date = new Date();
 
-      	var hours = (12 - (date.getHours()));
+      	// var hours = (12 - (date.getHours()));
 
-      	// var hours = date.getHours();
+      	var hours = date.getHours();
 
       	var minutes = date.getMinutes();
 
@@ -395,8 +395,8 @@
 
       	var date = new Date();
 
-      	var hours = (12 - (date.getHours()));
-      	// var hours = date.getHours();
+      	// var hours = (12 - (date.getHours()));
+      	var hours = date.getHours();
 
       	var minutes = date.getMinutes();
 
@@ -423,10 +423,8 @@
 
           //countdown timer
           var cD = <%= Task.sum(:time) %>
-          var pageLoadTime = new Date();
 
-            document.getElementById('timer').innerHTML =
-            cD + ":" + 00;
+          document.getElementById('timer').innerHTML = cD + ":" + 00;
           startTimer();
 
           function startTimer() {
@@ -437,20 +435,18 @@
             if(s==59){m=m-1}
             // if(m<0){alert('timer completed')}
 
-            document.getElementById('timer').innerHTML =
-              m + ":" + s;
+            document.getElementById('timer').innerHTML =  m + ":" + s;
             setTimeout(startTimer, 1000);
           }
 
           function checkSecond(sec) {
-            if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
-            if (sec < 0) {sec = "59"};
-            return sec;
-          }
-
-
-
+              if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
+              if (sec < 0) {sec = "59"};
+              return sec;
+            }
       		}
+
+
 
       },1000);
 
@@ -469,9 +465,6 @@
 
         $("#video")[0].src += "&autoplay=1";
         ev.preventDefault();
-
-
-
       }
 
 
@@ -698,9 +691,14 @@
 
     // countdown timer
     var cD = <%= Task.sum(:time) %>
-    var pageLoadTime = new Date();
+    window.setInterval(function () {
+      let d = new Date();
+      let arrivalTime = new Date(60000 * (Number(document.getElementById('timer').innerHTML.split(":")[0]) + d.getTime()/60000))
+      document.getElementById('departTime').innerHTML = arrivalTime.toString().split(" ")[4];
+      if (Number(arrivalTime.toString().split(" ")[4].split(":")[0])) {
 
-    // document.getElementById('timer').innerHTML =
+      }
+    }, 1000);
       // cD + ":" + 00;
     // startTimer();
     //
@@ -782,7 +780,8 @@
                       var duration_text = duration.text;
                       var duration_value = duration.value;
 
-                      var newTimeLeft = Math.ceil(cD - (duration.value / 60) - (Date.now() - pageLoadTime.getTime()) / 60000);
+                      var newTimeLeft = Math.ceil(Number(document.getElementById('timer').innerHTML.split(":")[0]) - (duration.value / 60))
+
                       document.getElementById('timer').innerHTML = newTimeLeft + ":" + "00";
 
 
